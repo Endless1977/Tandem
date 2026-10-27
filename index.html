@@ -1812,9 +1812,7 @@ function drawGeysers(Vr,now){
   for(const z of Vr.hz||[]){const edge=corridor(z.x+ds,wa)[z.side],dir=z.side?-1:1;
     const v=poolGet('vent',()=>new THREE.Mesh(unitBox,new THREE.MeshBasicMaterial({color:'#1a1420'})));v.position.set(z.x-240,1,edge-100);v.scale.set(9,3,5);
     if(!z.on){if(R()<(z.t>2?.7:.2))part(z.x+rnd(-3,3),edge+dir*2,1,rnd(-3,3),dir*rnd(4,14),rnd(4,10),.7,z.t>2?'#bff8ff':'#5ab4ff')}
-    else{const pl=poolGet('plume',()=>new THREE.Mesh(unitBox,new THREE.MeshBasicMaterial({color:'#bff8ff',transparent:true,opacity:.5,blending:THREE.AdditiveBlending,depthWrite:false})));
-      const len=70+Math.sin(now/40)*4;pl.material.opacity=.35+Math.random()*.25;pl.position.set(z.x-240,4,edge+dir*len/2-100);pl.scale.set(11+Math.sin(now/50)*2,8,len);
-      for(let i=0;i<5;i++)part(z.x+rnd(-5,5),edge+dir*rnd(0,60),rnd(1,8),rnd(-8,8),dir*rnd(30,80),rnd(5,25),.5,R()<.5?'#ffffff':'#7cc8ff')}}
+    else{for(let i=0;i<14;i++){const k=R();part(z.x+rnd(-4,4)*(1+k),edge+dir*k*70,rnd(1,10),rnd(-10,10),dir*rnd(40,90),rnd(5,25),rnd(.25,.5),R()<.4?'#ffffff':R()<.5?'#bff8ff':'#5ab4ff',R()<.3?1:0)}}}
 }
 function drawKelp(e){
   const bx=e.bx??e.x,by=e.by??e.y,n=8;
