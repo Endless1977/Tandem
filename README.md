@@ -20,12 +20,14 @@ If a partner drops out, the host can continue solo with both seats.
 | Seat | Control | Action |
 |---|---|---|
 | Pilot | WASD / arrows | Fly |
-| Pilot | Space | Prow lasers (forward only) |
+| Pilot | Space (or left click when online) | Prow lasers (forward only) |
+| Pilot | Right click (online) | Barrier field |
 | Gunner | Mouse | Aim the 360° turret |
 | Gunner | Left click | Rapid-fire laser turret |
 | Gunner | Right click | Heavy weapon (Seekers, Rail Lance, EMP) |
-| Gunner | 1–3, Q/E, wheel | Switch heavy weapon |
-| Gunner | F / Shift | Barrier field |
+| Gunner | 1–3, wheel | Switch heavy weapon |
+| Gunner | Q / E | Steer the tail (if bought) |
+| Both | F / Shift | Barrier field |
 | Both | X | Detonate the Omega charge (if bought) |
 | Both | C | Cycle your own camera |
 | Both | + / − (or Ctrl + wheel) | Zoom your camera in or out |
@@ -48,6 +50,19 @@ Every upgrade bolts a visible part onto the ship, so it grows as you buy more. T
 - Barrier, Deflectors, Hull Plating, Wing Drones, Field Repair, Spare Hull.
 
 Credits come from kills, so the more you destroy the more you can buy. Every cleared level also pays a fixed bonus, so you never get stuck.
+
+## Bonus jellyfish and gunner guns
+
+Golden jellyfish drift through now and then. Shoot one and it drops a bonus block for the pilot to fly into:
+
+- **Gunner gun blocks** cycle through colours and letters: **S** Spread, **W** Wave, **D** Side, **F** Forward, **H** Hail (shotgun bursts every 2–3 s). The gunner keeps that gun into the next levels until a different block is taken. Three of the same block in a row upgrades it to Mk II, three more to Mk III. These guns only come from blocks; the shop upgrades the standard turret (dome size, bolt thickness, twin barrels, side guns).
+- **General blocks**: C credits, + repair, S shields, O Omega charge.
+
+The **Gunner Tail** is an expensive special upgrade: a steerable tail carries the gunner dome behind the ship. It takes hits for the ship, and when it is destroyed the dome returns to the hull.
+
+The walls also hold seaweed, geysers that erupt every few seconds, and grabbing kelp that reaches for the ship, holds it and drains it until you shoot it.
+
+The drydock shows your ship turning in the hangar with everything you have bolted on, and every upgrade card has its own icon.
 
 ## Arcade bonuses
 
