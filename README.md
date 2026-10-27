@@ -29,6 +29,7 @@ If a partner drops out, the host can continue solo with both seats.
 | Both | X | Detonate the Omega charge (if bought) |
 | Both | C | Cycle your own camera |
 | Both | + / − (or Ctrl + wheel) | Zoom your camera in or out |
+| Both | M | Music on/off |
 
 ### Cameras
 
@@ -47,6 +48,17 @@ Every upgrade bolts a visible part onto the ship, so it grows as you buy more. T
 - Barrier, Deflectors, Hull Plating, Wing Drones, Field Repair, Spare Hull.
 
 Credits come from kills, so the more you destroy the more you can buy. Every cleared level also pays a fixed bonus, so you never get stuck.
+
+## Arcade bonuses
+
+- Every kill shows its points. Kills in quick succession build a combo; every 5 in a row raises the score multiplier (up to ×4).
+- Destroy a whole formation before any of it escapes: **Wave wiped**, bonus credits.
+- Finish a level without taking a hit: **No damage**, +300 credits.
+- Every 10,000 points is announced; every 50,000 earns an extra ship.
+
+## Music
+
+Commodore 64 style chiptune, generated in the browser. Each sector has its own song, the minor bosses, big bosses and the Null Sovereign (both forms) have their own themes, and the music adds drums, snare, lead and faster hi-hats as the screen gets busier.
 
 ## Structure
 
