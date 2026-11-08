@@ -475,12 +475,13 @@ y.y
 y.y
 .y.`,
 a_sbeam:`
-.aaaaa.
-abcccba
-acdedca
-afwwwfa
-.asfsa.
-..afa..`,
+.aaa...............
+abcbaaaaaaaaaaa.aa.
+abdcbcdcbdddddcazya
+akdcbdedbdeeeedzwwy
+abdcbcdcbdddddcazya
+abcbaaaaaaaaaaa.aa.
+.aaa...............`,
 a_sonic:`
 .azzza.
 azyyyza
@@ -1717,7 +1718,7 @@ const UPG=[
  {id:'shield',name:'Deflectors',seat:'Defense',max:4,cost:[900,1800,2900,4200],desc:['+25 shield capacity','+25 shield capacity','+25 shield capacity','+25 shield capacity']},
  {id:'hull',name:'Hull Plating',seat:'Defense',max:4,cost:[800,1700,2800,4000],desc:['+35 hull','+35 hull','+35 hull','+35 hull']},
  {id:'sonic',name:'Sonic Shield',seat:'Defense',max:3,cost:[5000,8000,12000],desc:['Passive: 50% of enemy shots ricochet off the hull','65% ricochet; bounced shots hit enemies harder','80% ricochet, bounced shots pierce']},
- {id:'sbeam',name:'Side Beams',seat:'Auto',max:5,cost:[2600,4200,6200,8600,11500],desc:['Thin laser beams fire sideways every few seconds','Thicker, stronger, more often','Thicker, stronger, more often','Thicker, stronger, longer burn','Heavy side beams']},
+ {id:'sbeam',name:'Side Beams',seat:'Auto',max:5,cost:[2600,4200,6200,8600,11500],desc:['Two wing cannons fire thin forward laser beams every few seconds','Thicker, stronger, more often','Thicker, stronger, more often','Thicker, stronger, longer burn','Heavy side beams']},
  {id:'drone',name:'Wing Drone',seat:'Defense',max:2,cost:[2200,4200],desc:['An escort drone that fires on its own','A second escort drone']},
  {id:'ult',name:'Omega Charge',seat:'Supply',cons:1,cost:4500,desc:'Press X: everything on screen explodes. One use, then buy again.'},
  {id:'repair',name:'Field Repair',seat:'Supply',cons:1,cost:500,desc:'Restore the hull to full'},
@@ -2007,7 +2008,7 @@ function gunnerFire(dt){
   if(u.orb>0){g.ot-=dt;if(g.ot<=0){g.ot=[0,2.4,2.2,2,1.8,1.5][u.orb];let n=st.pb.filter(p=>p.k===5).length;
     for(const oa of ORB_ANG[u.orb]){if(n++>=48)break;st.pb.push({x:s.x+Math.cos(oa)*14,y:s.y+Math.sin(oa)*9,vx:Math.cos(oa)*45+12,vy:Math.sin(oa)*45,k:5,dmg:15,life:9,kl:0})}ev({e:'snd',k:'orb'})}}
   if(u.sbeam>0){g.bt=(g.bt??2.5)-dt;const L=u.sbeam;if(g.bt<=0&&nearestTarget(s.x,s.y,480)){g.bt=[0,6,5.4,4.8,4.3,3.8][L];
-    for(const sd of [-1,1])addBeam(s.x-1,s.y+sd*6,sd*Math.PI/2,1.4+L*.9,.35,.55+L*.12,s,{dps:22+L*16,fr:1});ev({e:'snd',k:'sbm'})}}
+    const nx=4+L*.4+9.5*(.85+L*.1);for(const sd of [-1,1])addBeam(s.x+nx,s.y+sd*9.5,0,.7+L*.45,.3,.5+L*.12,s,{dps:22+L*16,fr:1});ev({e:'snd',k:'sbm'})}}
   if(u.aa>0){g.at-=dt;if(g.at<=0&&nearestTarget(s.x,s.y,420)){g.at=[0,3,2.7,2.4][u.aa];
     for(let i=0;i<u.aa;i++)for(const side of [-1,1]){const P=AA_POS[i];st.pb.push({x:s.x+P[0],y:s.y+side*P[1],vx:30,vy:side*80,k:6,dmg:2.2,life:3});ev({e:'aa',x:Math.round(s.x+P[0]),y:Math.round(s.y+side*P[1])})}
     ev({e:'snd',k:'ms'})}}
@@ -2619,7 +2620,7 @@ function attachList(u){
   for(let i=0;i<(u.barrier||0);i++)P('a_ring',-15-i*2.2,.3,0);
   const np=[[-5,8.5],[0,9.8],[-9,7.5],[4,9]];for(let i=0;i<(u.shield||0);i++)pair('a_node',np[i][0],1.8,np[i][1]);
   const hp=[[0,5.8],[9,4.6],[-9,5.2]];for(let i=0;i<Math.min(3,u.hull||0);i++)pair('a_plate',hp[i][0],.2,hp[i][1]);if((u.hull||0)>=4)P('a_plate',0,4.1,0);
-  if(u.sbeam)pair('a_sbeam',-1,1.2,6.2,.8+u.sbeam*.12);
+  if(u.sbeam)pair('a_sbeam',4+u.sbeam*.4,1.6,9.5,.85+u.sbeam*.1);
   if(u.sonic)P('a_sonic',-6,3.6,0,.65+u.sonic*.1);
   if(u.ult>0)P('a_war',0,-2.6,0);
   return L;
