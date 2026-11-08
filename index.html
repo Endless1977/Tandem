@@ -475,13 +475,15 @@ y.y
 y.y
 .y.`,
 a_sbeam:`
-.aaa...............
-abcbaaaaaaaaaaa.aa.
-abdcbcdcbdddddcazya
-akdcbdedbdeeeedzwwy
-abdcbcdcbdddddcazya
-abcbaaaaaaaaaaa.aa.
-.aaa...............`,
+.aaa......
+abcbaaaa..
+abdcbcdazy
+akdcbdbzwy
+akdcbdbzww
+akdcbdbzwy
+abdcbcdazy
+abcbaaaa..
+.aaa......`,
 a_sonic:`
 .azzza.
 azyyyza
@@ -2008,7 +2010,7 @@ function gunnerFire(dt){
   if(u.orb>0){g.ot-=dt;if(g.ot<=0){g.ot=[0,2.4,2.2,2,1.8,1.5][u.orb];let n=st.pb.filter(p=>p.k===5).length;
     for(const oa of ORB_ANG[u.orb]){if(n++>=48)break;st.pb.push({x:s.x+Math.cos(oa)*14,y:s.y+Math.sin(oa)*9,vx:Math.cos(oa)*45+12,vy:Math.sin(oa)*45,k:5,dmg:15,life:9,kl:0})}ev({e:'snd',k:'orb'})}}
   if(u.sbeam>0){g.bt=(g.bt??2.5)-dt;const L=u.sbeam;if(g.bt<=0&&nearestTarget(s.x,s.y,480)){g.bt=[0,6,5.4,4.8,4.3,3.8][L];
-    const nx=4+L*.4+9.5*(.85+L*.1);for(const sd of [-1,1])addBeam(s.x+nx,s.y+sd*9.5,0,.7+L*.45,.3,.5+L*.12,s,{dps:22+L*16,fr:1});ev({e:'snd',k:'sbm'})}}
+    const nx=4+L*.4+5*(.85+L*.1);for(const sd of [-1,1])addBeam(s.x+nx,s.y+sd*9.5,0,.35+L*.5,.3,.5+L*.12,s,{dps:22+L*16,fr:1});ev({e:'snd',k:'sbm'})}}
   if(u.aa>0){g.at-=dt;if(g.at<=0&&nearestTarget(s.x,s.y,420)){g.at=[0,3,2.7,2.4][u.aa];
     for(let i=0;i<u.aa;i++)for(const side of [-1,1]){const P=AA_POS[i];st.pb.push({x:s.x+P[0],y:s.y+side*P[1],vx:30,vy:side*80,k:6,dmg:2.2,life:3});ev({e:'aa',x:Math.round(s.x+P[0]),y:Math.round(s.y+side*P[1])})}
     ev({e:'snd',k:'ms'})}}
@@ -2803,7 +2805,7 @@ function render(Vin,dt,now){
   for(const b of Vr.bm){
     const C1=b.fr?'#3fe8ff':'#ff4d5e',C2=b.fr?'#2a9cff':'#ff3c5a',C3=b.fr?'#f0fdff':'#fff4f6';
     if(!b.on){const blink=(now/70|0)%2;drawBeamBox(poolGet('beam',beamMesh),b.x1,b.y1,b.ang,640,.6,b.fr?.6:.9,C1,blink?.9:.35)}
-    else{drawBeamBox(poolGet('beam',beamMesh),b.x1,b.y1,b.ang,640,b.w*.8,b.w+2,C2,.55);drawBeamBox(poolGet('beam',beamMesh),b.x1,b.y1,b.ang,640,b.w*.5,Math.max(.6,b.w-2),C3,.95);
+    else{const ow=b.fr?b.w*1.6+.4:b.w+2,cw=b.fr?b.w*.7:Math.max(.6,b.w-2);drawBeamBox(poolGet('beam',beamMesh),b.x1,b.y1,b.ang,640,b.w*.8,ow,C2,.55);drawBeamBox(poolGet('beam',beamMesh),b.x1,b.y1,b.ang,640,b.w*.5,cw,C3,.95);
       if(b.fr&&R()<.5)part(b.x1+rnd(-2,2),b.y1,1,rnd(-20,20),Math.sin(b.ang)*rnd(10,40),rnd(4,10),.25,'#9ff4ff')}
   }
   for(const r of RAILS){const k=r.l/r.m,a=Math.atan2(r.y2-r.y1,r.x2-r.x1),len=Math.hypot(r.x2-r.x1,r.y2-r.y1);
