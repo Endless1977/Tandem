@@ -60,7 +60,7 @@ Golden jellyfish drift through now and then. Shoot one and it drops a bonus bloc
 
 **Detachable dome**: the gunner can launch the turret dome on an indestructible platform (G or middle click). It flies to the mouse cursor and keeps shooting, and it rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds, then flies home and recharges. **Dome Link** in the drydock adds 10 seconds per purchase (up to 60 s) and costs at least half of your credits. The dome rides a small armoured copy of your ship. If the ship is destroyed, the dome goes with it.
 
-Weapon modules click onto the hull and onto each other, with no frame: Side Beam cannons against the hull, then the square AA boxes, then the Seeker Pods, then the wing emitters, with the round EMP cylinder on the left end. Shield emitters are small studs on the back. The **Rear Gun** (Pilot, 4 levels) is a little lattice tower on the tail that fires lasers backwards together with the prow lasers; Mk III fires two, Mk IV pierces. The ship gets wider with each module, but only the hull itself can be hit.
+Weapon modules click onto the hull and onto each other, with no frame: Side Beam cannons against the hull, then the square AA boxes, then the Seeker Pods, then the wing emitters, with the round EMP cylinder on the left end. Shield emitters are small studs on the back. The **Tesla Coil** (Pilot, 4 levels) sits on the tail and, while the prow fires, zaps the nearest enemy within a short range; each level adds range and damage, and the lightning chains to up to 4 enemies. The ship gets wider with each module, but only the hull itself can be hit.
 
 **Sonic Shield** (Defense, 3 levels) passively bounces 50%, 65% or 80% of enemy shots off the hull; the bounced shots turn cyan and hurt enemies. **Side Beams** (Auto, 5 levels) are two wing cannons that fire thin laser beams forward every few seconds; each level makes them thicker, stronger and more frequent.
 
@@ -92,6 +92,10 @@ Every sector is its own world, with its own ground, wall shape, decorations, obs
 | V | Emerald Canopy (jungle) | dragonflies, dart frogs, long-tailed monkeys, chameleons, anacondas; lianas, poison flowers | Corpse Bloom, a giant carnivorous flower |
 | VI | Silicon Grid (digital) | cursors, floppies, CPU fans, virus bugs, a snake from the snake game; RAM, CPUs, RGB strips | Mainframe Argus with cooling fans |
 | VII | Sovereign's Throne | all worlds torn together | Null Sovereign, pharaoh mask and Ascendant form |
+
+## Difficulty
+
+Pick **Normal**, **Hard** or **Extreme** next to the start level. On Hard and Extreme the further you get, the more often enemies dodge your shots (a blue MISS) and the harder their weapons hit. Your own ship stays the same.
 
 ## Structure
 
