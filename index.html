@@ -148,7 +148,7 @@ input#jCode{font-family:var(--f-d);letter-spacing:.4em;text-transform:uppercase;
     <div class="grp"><span class="pips" id="lives"></span></div>
     <div class="grp" id="bossBar" hidden><span id="bossName"></span><span class="meter bossm"><i id="mBoss"></i></span><span class="pips boss" id="bossLives"></span></div>
     <div class="spacer" id="topSpacer"></div>
-    <div class="grp"><span>Level</span><b id="nLvl">01/35</b><span class="hideS" id="nSector"></span></div>
+    <div class="grp"><span>Level</span><b id="nLvl">01/70</b><span class="hideS" id="nSector"></span></div>
     <div class="grp hideS"><span>Kills</span><b id="nKills">0</b></div>
     <div class="grp hideS"><span>Score</span><b id="nScore">0</b></div>
     <div class="grp"><span>Credits</span><b id="nCred" class="gold">0</b></div>
@@ -162,7 +162,7 @@ input#jCode{font-family:var(--f-d);letter-spacing:.4em;text-transform:uppercase;
     <section id="menu" class="ov">
       <div class="menuGrid">
         <div class="brand">
-          <div class="eyebrow">Two-seat strike craft · 35 levels · online co-op</div>
+          <div class="eyebrow">Two-seat strike craft · 7 worlds · 70 levels · online co-op</div>
           <h1>TANDEM</h1>
           <p class="lede">One flies. One fights. Seven sectors of reef, spines and tentacles stand between you and the Null Sovereign.</p>
           <dl class="ctrl">
@@ -1365,13 +1365,29 @@ function bossAscendant(B){const F=B.f2,s=genShip(F.seed,F.w,F.h,BP[F.pal],PROF[F
   const[cx,cyy]=s.core;Ep(g,cx,cyy,5,3,'#ffffff');Ep(g,cx,cyy,2.4,2.4,'#ff2a2a');Ep(g,cx,cyy,1,1,'#0a0c1c');
   return{c:crisp(c,null,null),core:s.core}}
 const BOSS_ART={5:bossCrab,10:bossSphinx,15:bossScorpion,20:bossColossus,25:bossBloom,30:bossMainframe,35:bossPharaoh};
-function genPod(lv){if(lv==10)return mk(MAPS.egy_gunship);if(lv==30)return mk(MAPS.dig_spinner);
+const LVMAX=70,WORLD_LV=10;
+const elv=lv=>1+(Math.max(1,lv)-1)*34/69; // difficulty curve stretched over 70 levels
+const worldOf=lv=>Math.min(6,Math.floor((Math.max(1,lv)-1)/WORLD_LV));
+const MINI_NM=['NAUTILUS PRIME','EYE OF HORUS','SANDSHELL TITAN','CINDER PHOENIX','CANOPY STALKER','KERNEL DAEMON','THRONE HERALD'];
+const MINI_SPR=['gunship','egy_gunship','des_gunship','lav_gunship','jun_gunship','dig_gunship','dig_gunship'];
+const MINI_FC=['#7ae8ff','#f2c84b','#ffe23a','#ff8a1a','#9be35a','#3fe8ff','#9b7bff'];
+function genMini(w){const src=mk(MAPS[MINI_SPR[w]]),k=3,c=document.createElement('canvas');c.width=src.width*k;c.height=src.height*k;const g=c.getContext('2d');g.imageSmoothingEnabled=false;g.drawImage(src,0,0,c.width,c.height);
+  return{c,core:[Math.round(c.width*.3),Math.round(c.height/2)]}}
+(function(){const O=Object.assign({},BOSS),OA=Object.assign({},BOSS_ART);for(const k in O)delete BOSS[k];for(const k in OA)delete BOSS_ART[k];
+  for(let w=0;w<7;w++){const ok=(w+1)*5,E=Object.assign({},O[ok]),end=(w+1)*WORLD_LV,mini=w*WORLD_LV+5;
+    // end bosses carry far more stamina
+    E.hp=Math.round(E.hp*2.2*(ok===5?1.6:1));if(E.php)E.php=Math.round(E.php*1.6);E.cr=Math.round(E.cr*1.5);if(E.f2)E.f2=Object.assign({},E.f2,{hp:Math.round(E.f2.hp*2)});
+    BOSS[end]=E;BOSS_ART[end]=OA[ok];
+    const m=O[5];BOSS[mini]={nm:MINI_NM[w],fc:MINI_FC[w],mov:w%2?'sweep':'hover',hp:Math.round((380+w*420)*1.5),cr:500+w*250,mini:1,
+      pats:[{k:'fan',n:5+w,sp:.2-w*.012,v:80+w*6,ev:.9-w*.04,dur:4},{k:'ring',n:12+w*2,v:60+w*4,ev:1.1-w*.05,rot:.2,dur:4},{k:'summon',ek:'dart',n:3+(w>>1),ev:2.4,dur:3},w>1?{k:'spiral',arms:3,step:.3,v:72,ev:.12,dur:3}:{k:'stream',v:110,ev:.18,dur:3}]};
+    BOSS_ART[mini]=()=>genMini(w)}})();
+function genPod(lv){if(lv==20)return mk(MAPS.egy_gunship);if(lv==60)return mk(MAPS.dig_spinner);
   const[c,g]=cv(14,14);Pp(g,[7,0,12,4,12,10,7,13,2,10,2,4],'#5a2a9a');Pp(g,[7,1,11,4,7,7,3,4],'#b07aff');Pp(g,[7,7,11,4,11,10,7,12],'#7a40cc');Lp(g,6,3,5,7,1,'#7ae8ff');Ep(g,6,3,1,1,'#ffffff');
   return crisp(c,['#5a2a9a','#b07aff','#7a40cc','#7ae8ff','#ffffff'])}
 
 /* which world a level belongs to */
 const THS=['wat','egy','des','lav','jun','dig'];
-function themeOf(lv){const si=Math.min(6,Math.floor((Math.max(1,lv)-1)/5));return si<6?THS[si]:'mix'}
+function themeOf(lv){const si=worldOf(lv);return si<6?THS[si]:'mix'}
 let WTH='wat';
 function regionTheme(u){return THS[Math.floor(colHash(Math.floor(u/480),5)*6)]}
 function thAt(u){return WTH==='mix'?regionTheme(u):WTH}
@@ -1563,17 +1579,17 @@ function wallDepth(u,side){
 function corridor(u,wa){return[wallDepth(u,0)*wa,H-wallDepth(u,1)*wa]}
 const PCH=110;
 function pillarsIn(u0,u1,pr,lv){
-  const out=[];if(!pr||!pr.length||lv<2)return out;const dens=Math.min(.55,.2+lv*.01);
+  const out=[];if(!pr||!pr.length||lv<2)return out;const dens=Math.min(.55,.2+elv(lv)*.01);
   for(let c=Math.floor(u0/PCH);c<=Math.ceil(u1/PCH);c++){if(colHash(c,77)>=dens)continue;const u=c*PCH+colHash(c,78)*60;
     if(!pr.some(r=>u>=r[0]&&(r[1]<0||u<r[1])))continue;const si=Math.floor(colHash(c,79)*3),r=[9,12,15][si];
     const v=colHash(c,81)<.5?0:1;out.push({u,y:lerp(r+44,H-r-44,colHash(c,80)),r,v,si,key:(v?'pB':'pA')+si,rot:colHash(c,82)*TAU})}
   return out;
 }
 // walls block, pillars push: used by whichever browser flies the ship
-function constrainShip(o,ds,wa,pr,lv){
+function constrainShip(o,ds,wa,pr,lv,xm=W-14,xn=8){
   let top=0,bot=H;for(const dx of [-10,0,12]){const c=corridor(o.x+dx+ds,wa);top=Math.max(top,c[0]);bot=Math.min(bot,c[1])}
   for(const p of pillarsIn(o.x+ds-40,o.x+ds+40,pr,lv)){const px=p.u-ds,dx=o.x-px,dy=o.y-p.y,d=Math.hypot(dx,dy)||1,m=p.r+6;if(d<m){o.x+=dx/d*(m-d);o.y+=dy/d*(m-d)}}
-  o.x=clamp(o.x,8,W-14);o.y=clamp(o.y,top+5,bot-5);
+  o.x=clamp(o.x,xn,xm);o.y=clamp(o.y,top+5,bot-5);
 }
 
 /* ---------------- AUDIO: punchy effects through a compressor ---------------- */
@@ -1710,9 +1726,9 @@ function playStep(S,i,t,sd){
 // pick the song and how intense it should be, from what is on screen
 function musUpdate(V,dt){
   let want='menu',tgt=.6;
-  if(V){const ph=V.ph,si=Math.min(6,Math.floor((Math.max(1,V.lv)-1)/5));
+  if(V){const ph=V.ph,si=worldOf(V.lv);
     if(ph==='shop')want='shop';else if(ph==='gameover')want='over';else if(ph==='victory')want='win';else if(ph==='transform')want='tf';
-    else if((ph==='boss'||ph==='warning')&&BOSS[V.lv])want=V.lv===35?(V.bo&&V.bo.ph===2?'super2':'super1'):(V.lv%10===0?'bossB':'bossA');
+    else if((ph==='boss'||ph==='warning')&&BOSS[V.lv])want=V.lv===LVMAX?(V.bo&&V.bo.ph===2?'super2':'super1'):(V.lv%10===0?'bossB':'bossA');
     else want='sec'+si;
     tgt=Math.min(1,V.en.length/12*.55+V.eb.length/50*.35+(V.ship.mhp&&V.ship.hp/V.ship.mhp<.35?.25:0)+((ph==='intro'||ph==='clear')?-.3:0)+(V.bo?.3:0));}
   MUSIC.tgt=clamp(tgt,0,1);MUSIC.int+=(MUSIC.tgt-MUSIC.int)*Math.min(1,dt*(MUSIC.tgt>MUSIC.int?.9:.25));
@@ -1804,7 +1820,7 @@ const combatOn=ph=>ph==='intro'||ph==='play'||ph==='warning'||ph==='boss'||ph===
 const freshUp=()=>({rgun:0,sonic:0,sbeam:0,pcannon:0,spread:0,turret:0,tside:0,dlink:0,missile:0,rail:0,emp:0,orb:0,aa:0,barrier:0,shield:0,hull:0,drone:0,ult:0});
 // difficulty: the further you get, the more enemies dodge your shots and the harder their weapons hit; your ship stays the same
 const DIFF=[{n:'Normal',ev:0,dm:0},{n:'Hard',ev:.28,dm:.6},{n:'Extreme',ev:.45,dm:1.2}];
-const diffProg=()=>clamp((st.lv-1)/34,0,1);
+const diffProg=()=>clamp((st.lv-1)/(LVMAX-1),0,1);
 const evadeP=()=>DIFF[st.diff||0].ev*(.25+.75*diffProg());
 const dmgMul=()=>1+DIFF[st.diff||0].dm*(.2+.8*diffProg());
 function newGame(start=1,diff=0){
@@ -1817,16 +1833,16 @@ function newGame(start=1,diff=0){
 function startLevel(lv){
   st.lv=lv;st.ph='intro';st.pt=2.4;st.waves=makeWaves(lv);st.wi=0;st.wt=0;st.boss=null;st.eb=[];st.bm=[];st.queue=[];st.ready={p:false,g:false};
   st.ship.sh=st.ship.msh;st.lvKills=0;st.lvEarn=0;st.lvHit=false;st.groups={};
-  const si=Math.min(6,Math.floor((lv-1)/5));
-  banner('LEVEL '+lv,'Sector '+ROMAN[si]+' · '+SECT[si].n,'info',2.6);
+  const si=worldOf(lv),wl=(lv-1)%WORLD_LV+1;
+  banner('LEVEL '+lv,'World '+ROMAN[si]+' · '+SECT[si].n+' · '+wl+'/'+WORLD_LV,'info',2.6);
 }
 function openPillars(){const l=st.pr[st.pr.length-1];if(!l||l[1]>=0)st.pr.push([st.ds+W+60,-1])}
 function closePillars(){const l=st.pr[st.pr.length-1];if(l&&l[1]<0)l[1]=st.ds+W+60}
-function makeWaves(lv){
-  const pool=['circle','square','zig'];
+function makeWaves(lv0){
+  const lv=elv(lv0),pool=['circle','square','zig'];
   if(lv>=2)pool.push('hex');if(lv>=3)pool.push('flank','fig8');if(lv>=4)pool.push('rocks','tri');if(lv>=6)pool.push('spinners');if(lv>=7)pool.push('mines');
   if(lv>=8)pool.push('gunship');if(lv>=9)pool.push('eelring');if(lv>=11)pool.push('pincer');if(lv>=12)pool.push('snipers');if(lv>=16)pool.push('mixed','flank');
-  const n=BOSS[lv]?3:5+Math.floor(lv/5),w=[];let prev='';
+  const n=BOSS[lv0]?3:5+Math.floor(lv/5),w=[];let prev='';
   for(let i=0;i<n;i++){let p;let tries=0;do{p=pick(pool);tries++}while(p===prev&&tries<6);prev=p;const g=[p];if(lv>=10&&R()<lv/70)g.push(pick(pool));w.push(g)}
   return w;
 }
@@ -1873,8 +1889,8 @@ function pathMove(e,dt){
   else{e.vx=lerp(e.vx,-170,Math.min(1,dt*1.2));e.vy=lerp(e.vy,0,Math.min(1,dt*1.2));e.x+=e.vx*dt;e.y+=e.vy*dt;e.h=Math.atan2(e.vy,e.vx)}
 }
 function spawnE(k,x,y,o={}){
-  const d=ET[k],m=1+(st.lv-1)*.14;
-  const e={id:++st.nid,k,x,y,vx:0,vy:0,hp:d.hp*m,mhp:d.hp*m,r:d.r,t:0,ft:rnd(.8,2),flash:0,stun:0,a:0,h:Math.PI,o,y0:y,life:o.life||rnd(11,14),cr:Math.round(d.cr*(1+st.lv*.03)),sc:d.sc,v:rint(0,2)};
+  const d=ET[k],E=elv(st.lv),m=1+(E-1)*.14;
+  const e={id:++st.nid,k,x,y,vx:0,vy:0,hp:d.hp*m,mhp:d.hp*m,r:d.r,t:0,ft:rnd(.8,2),flash:0,stun:0,a:0,h:Math.PI,o,y0:y,life:o.life||rnd(11,14),cr:Math.round(d.cr*(1+E*.03)),sc:d.sc,v:rint(0,2)};
   if(k==='rock'||k==='rocks'){e.vx=o.vx||-rnd(22,40);e.vy=o.vy||rnd(-8,8);e.spin=rnd(-2,2)}
   if(k==='mine'){e.vx=o.vx??-25;e.vy=o.vy??0}
   if(k==='swooper'){e.vx=rnd(60,80);e.h=0}
@@ -1887,7 +1903,7 @@ function addBeam(x,y,ang,w,tele,dur,src,o={}){st.bm.push({x1:x,y1:y,ang,len:640,
 
 function updEnemy(e,dt){
   e.t+=dt;if(e.flash>0)e.flash-=dt;if(e.stun>0)e.stun-=dt;e.ft-=dt;
-  const lv=st.lv,fr=1+lv*.025,bs=1+lv*.012,s=st.ship,can=e.stun<=0&&!s.dead&&e.x<W-4&&e.x>4&&e.y>2&&e.y<H-2,P=e.o.path;
+  const lv=elv(st.lv),fr=1+lv*.025,bs=1+lv*.012,s=st.ship,can=e.stun<=0&&!s.dead&&e.x<W-4&&e.x>4&&e.y>2&&e.y<H-2,P=e.o.path;
   if(P)pathMove(e,dt);
   switch(e.k){
   case 'dart':
@@ -2103,7 +2119,7 @@ function updDrones(dt){
 function startBoss(){makeBoss(BOSS[st.lv]);st.ph='boss'}
 function makeBoss(B){
   const key='boss'+st.lv,S=SRC[key];
-  st.boss={id:++st.nid,B,nm:B.nm,spr:key,w:S.c.width,h:S.c.height,core:S.core,x:W+S.c.width,y:H/2,tx:W-S.c.width/2-16,hp:B.hp,mhp:B.hp,fl:0,phase:1,lives:B.lives||1,
+  st.boss={id:++st.nid,B,nm:B.nm,spr:key,w:S.c.width,h:S.c.height,core:S.core,x:W+S.c.width,y:H/2,tx:Math.min(W-S.c.width/2-16,350),hp:B.hp,mhp:B.hp,fl:0,phase:1,lives:B.lives||1,
     pats:B.pats,pi:0,pt:0,pf:1,pause:0,spin:0,m:1,entering:true,t:0,mov:B.mov,dash:null,dying:0,
     parts:(B.parts||[]).map(([ox,oy])=>({ox,oy,x:0,y:0,hp:B.php,mhp:B.php,fl:0,alive:true,cd:rnd(1,2)}))};
   banner(B.nm,B.parts?'Destroy the shield pods to expose the core':'','boss',2.6);
@@ -2114,7 +2130,7 @@ function updBoss(dt){
   const b=st.boss;b.t+=dt;if(b.fl>0)b.fl-=dt;
   if(b.dying){b.dying-=dt;if(R()<dt*14)ev({e:'x',x:Math.round(b.x+rnd(-b.w/2,b.w/2)),y:Math.round(b.y+rnd(-b.h/2,b.h/2)),s:2});
     if(b.dying<=0){ev({e:'x',x:Math.round(b.x),y:Math.round(b.y),s:4});award(b.B.cr,b.B.cr*10);ev({e:'big',t:'BOSS DESTROYED',s2:'+'+fmt(b.B.cr)+' CREDITS',c:1,snd:'mile'});st.boss=null;
-      if(st.lv>=35){st.ph='victory';st.end={k:'win'}}else levelClear()}
+      if(st.lv>=LVMAX){st.ph='victory';st.end={k:'win'}}else levelClear()}
     return}
   if(b.entering){b.x=lerp(b.x,b.tx,Math.min(1,dt*1.2));if(Math.abs(b.x-b.tx)<1.5)b.entering=false}
   else if(b.dash)doDash(b,dt);
@@ -2137,7 +2153,7 @@ function doDash(b,dt){
   else b.dash=null;
 }
 function firePat(b,P){
-  const m=b.m,[ex,ey]=bossEmit(b),bs=1+st.lv*.006,heavy=b.phase>1;
+  const m=b.m,[ex,ey]=bossEmit(b),bs=1+elv(st.lv)*.006,heavy=b.phase>1;
   const v=(P.v||80)*bs*(m>1?1.15:1),n=Math.round((P.n||1)*(m>1?1.3:1));
   switch(P.k){
   case 'fan':{const a=aimFrom(ex,ey);for(let i=0;i<n;i++)eShoot(ex,ey,a+(i-(n-1)/2)*P.sp,v,heavy?3:0);break}
@@ -2210,12 +2226,12 @@ function retry(){
 function runWaves(dt){
   st.wt-=dt;
   const alive=st.en.filter(e=>!PASSIVE[e.k]).length+st.queue.filter(q=>!PASSIVE[q.k]).length;
-  const gap=Math.max(7,11-st.lv*.1);
+  const gap=Math.max(7,11-elv(st.lv)*.1);
   if(st.wi<st.waves.length){if(st.wt<=0||(alive===0&&st.wt<gap-1.5)){for(const f of st.waves[st.wi])formation(f);st.wi++;st.wt=gap}}
   else if(alive===0){closePillars();if(BOSS[st.lv]){st.ph='warning';st.pt=3;banner('WARNING',BOSS[st.lv].nm+' approaching','warn',3);ev({e:'snd',k:'warn'})}else levelClear()}
   // corals grow out of the walls and lob slow spores
   if(st.lv>=3){st.kelpT-=dt;if(st.kelpT<=0){st.kelpT=rnd(5,9);const side=R()<.5?0:1,c=corridor(st.ds+W+16,st.wa),e=spawnE('kelp',W+16,side?c[1]:c[0],{side});e.bx=W+16;e.by=side?c[1]:c[0]}}
-  if(st.lv>=2){st.coralT-=dt;if(st.coralT<=0){st.coralT=rnd(2.2,4.5)*Math.max(.55,1-st.lv*.012);const side=R()<.5?0:1,u=st.ds+W+16,c=corridor(u,st.wa);spawnE('coral',W+16,side?c[1]-4:c[0]+4,{})}}
+  if(st.lv>=2){st.coralT-=dt;if(st.coralT<=0){st.coralT=rnd(2.2,4.5)*Math.max(.55,1-elv(st.lv)*.012);const side=R()<.5?0:1,u=st.ds+W+16,c=corridor(u,st.wa);spawnE('coral',W+16,side?c[1]-4:c[0]+4,{})}}
 }
 function simStep(dt){
   st.time+=dt;if(st.banner){st.banner.t-=dt;if(st.banner.t<=0)st.banner=null}
@@ -2223,7 +2239,7 @@ function simStep(dt){
   if(ph==='transform'){st.tf+=dt/TF_DUR;if(st.tf>=1)endTransform();return}
   if(ph==='shop'||ph==='gameover'||ph==='victory'||ph==='lobby')return;
   st.ds+=SCROLL*dt;
-  const wt=(ph==='warning'||ph==='boss')?.35:Math.min(1,.55+st.lv*.03);st.wa=lerp(st.wa,wt,Math.min(1,dt*.6));
+  const wt=(ph==='warning'||ph==='boss')?.35:Math.min(1,.55+elv(st.lv)*.03);st.wa=lerp(st.wa,wt,Math.min(1,dt*.6));
   st.pr=st.pr.filter(r=>r[1]<0||r[1]>st.ds-300);
   updShip(dt);updDome(dt);pilotFire(dt);gunnerFire(dt);updDrones(dt);
   if(ph==='intro'){st.pt-=dt;if(st.pt<=0){st.ph='play';st.wt=.5;openPillars()}}
@@ -2296,7 +2312,7 @@ function collide(dt){
   // ricocheted shots now hurt enemies
   for(const e of st.eb){if(!e.rc||e.dead)continue;for(const q of st.en)if(!q.dead&&d2(e.x,e.y,q.x,q.y)<(q.r+2)**2){hurtE(q,e.rc);ev({e:'h',x:Math.round(e.x),y:Math.round(e.y),c:0});if(st.up.sonic<3){e.dead=1;break}}}
   if(s.dead)return;
-  const bar=s.bar>0,bd=7+st.lv*.25,sonic=st.up.sonic||0;
+  const bar=s.bar>0,bd=7+elv(st.lv)*.25,sonic=st.up.sonic||0;
   for(const e of st.eb){
     if(e.rc)continue;
     if(sonic&&!bar&&s.inv<=0&&d2(e.x,e.y,s.x,s.y)<(EBR[e.k]+5)**2){
@@ -2458,16 +2474,31 @@ function movePilot(o,dt,Vw){
   if(!typing()){
     const A=K('ArrowLeft','KeyA')?1:0,D=K('ArrowRight','KeyD')?1:0,Wk=K('ArrowUp','KeyW')?1:0,S=K('ArrowDown','KeyS')?1:0;
     let dx,dy;
-    if(camMode==='anamorphic'){dx=D-A;dy=S-Wk}else{dx=Wk-S;dy=D-A}
+    if(camMode==='anamorphic'&&ARB<.5){dx=D-A;dy=S-Wk}else{dx=Wk-S;dy=D-A}
     if(dx&&dy){dx*=.7071;dy*=.7071}
     const g=Vw.ship&&Vw.ship.gr,sp=120*((g===true||g>0)?.35:1);o.x+=dx*sp*dt;o.y+=dy*sp*dt;
   }
-  constrainShip(o,Vw.ds,Vw.wa,Vw.pr,Vw.lv);
+  constrainShip(o,Vw.ds,Vw.wa,Vw.pr,Vw.lv,Vw.bo?260:W-14,Vw.bo?110:8);
 }
 
 /* ---------------- 3D RENDERER ---------------- */
 let renderer=null,scene,cam,GLOK=true;
 const MAT={},MODELS={},BUL={};
+/* ---- winding road: the whole scene is bent on the GPU (sideways curves + hills); game logic stays straight ---- */
+const BENDU={value:new THREE.Vector4(240,0,0,0)};let BENDA=0,BENDH=0,RDS=0;
+const bY=u=>BENDA*(26*Math.sin(u*.0052+.7)+14*Math.sin(u*.0121+2.1));
+const bH=u=>BENDH*(16*Math.sin(u*.0067+1.3)+8*Math.sin(u*.017));
+const dbY=u=>BENDA*(26*.0052*Math.cos(u*.0052+.7)+14*.0121*Math.cos(u*.0121+2.1));
+const dbH=u=>BENDH*(16*.0067*Math.cos(u*.0067+1.3)+8*.017*Math.cos(u*.017));
+THREE.Material.prototype.onBeforeCompile=function(sh){if(this.userData.noBend)return;sh.uniforms.uBend=BENDU;
+  sh.vertexShader='uniform vec4 uBend;\n'+sh.vertexShader.replace('#include <project_vertex>',`vec4 mvPosition=vec4(transformed,1.0);
+#ifdef USE_INSTANCING
+mvPosition=instanceMatrix*mvPosition;
+#endif
+vec4 bwp=modelMatrix*mvPosition;float bu=bwp.x+uBend.x;
+bwp.z+=uBend.y*(26.0*sin(bu*.0052+.7)+14.0*sin(bu*.0121+2.1));
+bwp.y+=uBend.z*(16.0*sin(bu*.0067+1.3)+8.0*sin(bu*.017));
+mvPosition=viewMatrix*bwp;gl_Position=projectionMatrix*mvPosition;`)};
 const DUM=new THREE.Object3D(),V3=new THREE.Vector3(),RAY=new THREE.Raycaster(),NDC=new THREE.Vector2(),COL=new THREE.Color();
 const unitBox=new THREE.BoxGeometry(1,1,1);
 let TUR,starGeo,starPos,starCol,STARS=[],floor,floorTex,planetSpr,turret,flame,barrierMesh,shieldMesh,WALLM,JUNKM,LIGHTM,TENTM;
@@ -2513,9 +2544,9 @@ function initGL(){
   for(let i=0;i<NS;i++){const sky=i>650;const s={sky,x:sky?rnd(-600,3400):rnd(-800,800),y:sky?rnd(450,1600):rnd(-650,-40),z:sky?rnd(-2600,2600):rnd(-380,380),sp:sky?rnd(30,90):rnd(15,60)};
     const b=pick([.35,.55,.9]);for(let k=0;k<2;k++){starCol[i*6+k*3]=b*.85;starCol[i*6+k*3+1]=b*.9;starCol[i*6+k*3+2]=b}STARS.push(s)}
   starGeo=new THREE.BufferGeometry();starGeo.setAttribute('position',new THREE.BufferAttribute(starPos,3));starGeo.setAttribute('color',new THREE.BufferAttribute(starCol,3));
-  const stars=new THREE.LineSegments(starGeo,new THREE.LineBasicMaterial({vertexColors:true,fog:false}));stars.frustumCulled=false;scene.add(stars);
+  const stars=new THREE.LineSegments(starGeo,new THREE.LineBasicMaterial({vertexColors:true,fog:false}));stars.material.userData.noBend=1;stars.frustumCulled=false;scene.add(stars);
   floorTex=new THREE.CanvasTexture(genNebula(0));floorTex.magFilter=floorTex.minFilter=THREE.NearestFilter;floorTex.generateMipmaps=false;floorTex.wrapS=floorTex.wrapT=THREE.RepeatWrapping;floorTex.repeat.set(1.6,1.6);
-  floor=new THREE.Mesh(new THREE.PlaneGeometry(5120,5120),new THREE.MeshBasicMaterial({map:floorTex,color:new THREE.Color(.55,.55,.6)}));floor.rotation.x=-Math.PI/2;floor.position.set(800,-700,0);scene.add(floor);
+  floor=new THREE.Mesh(new THREE.PlaneGeometry(5120,5120),new THREE.MeshBasicMaterial({map:floorTex,color:new THREE.Color(.55,.55,.6)}));floor.material.userData.noBend=1;floor.rotation.x=-Math.PI/2;floor.position.set(800,-700,0);scene.add(floor);
   const pt=new THREE.CanvasTexture(genPlanet(0));pt.magFilter=pt.minFilter=THREE.NearestFilter;pt.generateMipmaps=false;
   planetSpr=new THREE.Sprite(new THREE.SpriteMaterial({map:pt,fog:false,depthWrite:false}));planetSpr.position.set(3600,420,-900);planetSpr.scale.set(2200,2200,1);scene.add(planetSpr);
 }
@@ -2647,6 +2678,15 @@ function updCamera(s,ang,dt,mode){
   case 'gunner':{const PX=CAMPIV[0]-240,PZ=CAMPIV[1]-100;pos.set(PX-Math.cos(ang)*4,10,PZ-Math.sin(ang)*4);look.set(PX+Math.cos(ang)*220,1,PZ+Math.sin(ang)*220);fov=clamp(74/z,24,115);break}
   case 'hangar':{const th=performance.now()/5000;pos.set(X+Math.cos(th)*50,20,Z+Math.sin(th)*50);const fx=X-pos.x,fz=Z-pos.z,l=Math.hypot(fx,fz);look.set(X+(-fz/l)*26,1,Z+(fx/l)*26);fov=46;break}
   }
+  // boss arena: the default view swings round behind the ship, boss at the top of the screen and the ship at the bottom
+  if(mode==='anamorphic'){const want=!attractMode&&/^(warning|boss|transform)$/.test(CURPH)?1:0;ARB=lerp(ARB,want,Math.min(1,dt*1.1));if(Math.abs(ARB-want)<.002)ARB=want;
+    if(ARB>0){const zf=1/z,ap=new THREE.Vector3(ARP.px-60*(zf-1),ARP.py*zf,Z*.3),al=new THREE.Vector3(ARP.lx,0,Z*.2),e=ARB*ARB*(3-2*ARB);
+      pos.lerp(ap,e);look.lerp(al,e);up.lerp(V3.set(1,1,0).normalize(),e).normalize();if(e>.999)up.set(1,1,0).normalize();fov=lerp(30,ARP.fov,e)}}
+  else ARB=0;
+  if(mode!=='hangar'){const ux=pos.x+240+RDS,ul=look.x+240+RDS;
+    if(mode==='anamorphic'){ // perspective shifts gradually: lean back when the road climbs, rotate with sideways curves
+      const sy=dbY(ux),sh=dbH(ux);pos.z+=bY(ux);look.z+=bY(ux);pos.y+=bH(ux);look.y+=bH(ux);pos.x-=sh*AN_D/z*.9;pos.z-=sy*AN_D/z*.35;const ra=Math.atan(sy)*.55;if(!ARB)up.set(-Math.sin(ra),0,-Math.cos(ra))}
+    else{pos.z+=bY(ux);pos.y+=bH(ux);look.z+=bY(ul);look.y+=bH(ul)}}
   if(camSnap||!smooth){camPos.copy(pos);camLook.copy(look);camSnap=false}
   else{const k=Math.min(1,dt*smooth);camPos.lerp(pos,k);camLook.lerp(look,k)}
   cam.position.copy(camPos);
@@ -2654,16 +2694,16 @@ function updCamera(s,ang,dt,mode){
   cam.up.copy(up);cam.lookAt(camLook);
   if(cam.fov!==fov){cam.fov=fov;cam.updateProjectionMatrix()}
 }
-let attractMode=false,CAMPIV=[0,0];
+let attractMode=false,CAMPIV=[0,0],ARB=0,CURPH='';const ARP={px:-215,py:95,lx:40,fov:60};
 const Vin_zoom=mode=>attractMode?1:ZOOM[mode];
 function aimFromMouse(s){
   if(camMode==='gunner'){if(!locked&&mouseIn){const off=(MX/W-.5);if(Math.abs(off)>.04)LIN.ang+=off*3.2*(1/60)}LIN.gx=s.x+Math.cos(LIN.ang)*60;LIN.gy=s.y+Math.sin(LIN.ang)*60;return}
   NDC.set(MX/W*2-1,-(MY/H)*2+1);RAY.setFromCamera(NDC,cam);const o=RAY.ray.origin,d=RAY.ray.direction;
-  if(d.y<-1e-4){const t=-o.y/d.y,gx=o.x+d.x*t+240,gy=o.z+d.z*t+100;LIN.gx=gx;LIN.gy=gy;if(!s.on||Math.hypot(gx-s.x,gy-s.y)>9)LIN.ang=Math.atan2(gy-s.y,gx-s.x)}
+  if(d.y<-1e-4){const h0=bH(s.x+RDS),t=(h0-o.y)/d.y;let gx=o.x+d.x*t+240,gy=o.z+d.z*t+100;gy-=bY(gx+RDS);LIN.gx=gx;LIN.gy=gy;if(!s.on||Math.hypot(gx-s.x,gy-s.y)>9)LIN.ang=Math.atan2(gy-s.y,gx-s.x)}
   else LIN.ang=Math.atan2(d.z,d.x);
 }
 const ZAPS=[];
-function project(x,y,h=0){V3.set(x-240,h,y-100).project(cam);if(V3.z>1||V3.z<-1)return null;return[(V3.x+1)/2*W,(1-V3.y)/2*H]}
+function project(x,y,h=0){const u=x+RDS;V3.set(x-240,h+bH(u),y-100+bY(u)).project(cam);if(V3.z>1||V3.z<-1)return null;return[(V3.x+1)/2*W,(1-V3.y)/2*H]}
 
 /* ---------------- SHIP ATTACHMENTS (cosmetic; the hitbox stays the small hull) ---------------- */
 function attachList(u){
@@ -2800,8 +2840,10 @@ function render(Vin,dt,now){
   updFx(dt);
   attractMode=!Vin;
   const Vr=Vin||attractV;
-  if(!Vin){const t=now/1000;attractV.lv=[3,8,13,18,23,28,33][Math.floor(t/10)%7];attractV.ds=t*SCROLL;attractV.ship.x=160+Math.sin(t*.5)*40;attractV.ship.y=100+Math.sin(t*.8)*35;attractV.ta=Math.sin(t*.7)*2;attractCam=Math.floor(t/6)%3}
-  setSector(Math.min(6,Math.floor((Math.max(1,Vr.lv)-1)/5)));
+  if(!Vin){const t=now/1000;attractV.lv=[3,13,23,33,43,53,63][Math.floor(t/10)%7];attractV.ds=t*SCROLL;attractV.ship.x=160+Math.sin(t*.5)*40;attractV.ship.y=100+Math.sin(t*.8)*35;attractV.ta=Math.sin(t*.7)*2;attractCam=Math.floor(t/6)%3}
+  setSector(worldOf(Vr.lv));CURPH=Vr.ph;
+  {const ph=Vr.ph,flat=!Vin?0:(ph==='warning'||ph==='boss'||ph==='transform'||ph==='shop'||ph==='victory'||ph==='lobby'),k=Math.min(1,dt*(flat?.9:.35));
+    BENDA=lerp(BENDA,flat?0:1,k);BENDH=lerp(BENDH,flat?0:1,k);if(!Vin){BENDA=1;BENDH=1}RDS=Vr.ds||0;BENDU.value.set(240+RDS,BENDA,BENDH,0)}
   framesBegin();
   const frozen=Vr.ph==='transform';
   MAT.base.color.setRGB(...(frozen?[.35,.38,.75]:[1,1,1]));floor.material.color.setRGB(...(frozen?[.2,.18,.3]:[.55,.55,.6]));
@@ -2902,7 +2944,7 @@ function drawKelp(e,th){
   const c=getM(enemyKey(e,th));place(c,e.x,e.y,2.5,-(e.h||0)+Math.PI,0);if(e.flash>0)c.material=MAT.flash;
 }
 function drawMorph(bo,tf){
-  const A=getM('boss35'),B=getM('boss35b'),MA=MODELS.boss35,MB=MODELS.boss35b;
+  const A=getM('boss70'),B=getM('boss70b'),MA=MODELS.boss70,MB=MODELS.boss70b;
   A.material=MAT.boss;B.material=MAT.boss;
   const ka=clamp(tf/.55,0,1),kb=clamp((tf-.45)/.55,0,1);
   A.count=Math.floor(MA.n*(1-ka));B.count=Math.floor(MB.n*kb);
@@ -3007,8 +3049,8 @@ function hud(V){
   pips('li',$h.lives,V.li,Math.max(3,V.li));
   $h.boss.hidden=!V.bo;$h.spacer.hidden=!!V.bo;
   if(V.bo){setT('bn',$h.bossName,V.bo.nm);setW('bh',$h.mBoss,V.bo.hpf);pips('bl',$h.bossLives,V.bo.ph===2?1:V.bo.li,V.bo.li>1||V.bo.ph===2?2:1)}
-  const lv=Math.max(1,V.lv),si=Math.min(6,Math.floor((lv-1)/5));
-  setT('lv',$h.lvl,String(lv).padStart(2,'0')+'/35'+(V.df?' '+DIFF[V.df].n.toUpperCase():''));setT('sec',$h.sector,ROMAN[si]+' · '+SECT[si].n);setT('ki',$h.kills,fmt(V.kills||0));setT('sc',$h.score,fmt(V.sc));setT('cr',$h.cred,fmt(V.cr));
+  const lv=Math.max(1,V.lv),si=worldOf(lv);
+  setT('lv',$h.lvl,String(lv).padStart(2,'0')+'/'+LVMAX+(V.df?' '+DIFF[V.df].n.toUpperCase():''));setT('sec',$h.sector,ROMAN[si]+' · '+SECT[si].n+' '+((lv-1)%WORLD_LV+1)+'/'+WORLD_LV);setT('ki',$h.kills,fmt(V.kills||0));setT('sc',$h.score,fmt(V.sc));setT('cr',$h.cred,fmt(V.cr));
   setT('pg',$h.pilotGun,'Prow Lasers Mk '+ROMAN[V.up.pcannon]+(V.up.spread?' · Wings '+V.up.spread:'')+(V.up.rgun?' · Tesla '+ROMAN[V.up.rgun-1]:''));
   setT('pw',$h.pilotWho,LOC.pilot?'You':'Partner');setT('gw',$h.gunWho,LOC.gunner?'You':'Partner');
   const sel=LOC.gunner?LIN.sel:V.cd.sel;
@@ -3054,7 +3096,7 @@ function renderEnd(V){
   if(DISC==='partner')h=`<div class="eyebrow">Connection</div><h2 class="bad">Partner disconnected</h2><p>The game is paused on level ${V.lv}. You can take both seats and keep flying.</p><div class="row"><button class="btn primary" data-act="solo">Continue solo</button><button class="btn" data-act="menu">Main menu</button></div>`;
   else if(DISC==='host')h=`<div class="eyebrow">Connection</div><h2 class="bad">The host left</h2><p>The game ran on the host's browser, so it ended with them.</p><div class="row"><button class="btn primary" data-act="menu">Main menu</button></div>`;
   else if(V.ph==='gameover')h=`<div class="eyebrow">Level ${V.lv}</div><h2 class="bad">Ship lost</h2><p>Score ${fmt(V.sc)} · ${fmt(V.kills||0)} kills. Upgrades and credits stay with you.</p>`+(host?`<div class="row"><button class="btn primary" data-act="retry">Retry from level ${cp}</button><button class="btn" data-act="menu">Main menu</button></div>`:`<p class="note">Waiting for the host to retry.</p><div class="row"><button class="btn" data-act="menu">Leave</button></div>`);
-  else h=`<div class="eyebrow">35 of 35</div><h2 class="good">The Sovereign falls</h2><p>Final score ${fmt(V.sc)} · ${fmt(V.kills||0)} kills. Both seats made it home.</p>`+(host?`<div class="row"><button class="btn primary" data-act="again">Fly again</button><button class="btn" data-act="menu">Main menu</button></div>`:`<div class="row"><button class="btn" data-act="menu">Main menu</button></div>`);
+  else h=`<div class="eyebrow">70 of 70</div><h2 class="good">The Sovereign falls</h2><p>Final score ${fmt(V.sc)} · ${fmt(V.kills||0)} kills. Both seats made it home.</p>`+(host?`<div class="row"><button class="btn primary" data-act="again">Fly again</button><button class="btn" data-act="menu">Main menu</button></div>`:`<div class="row"><button class="btn" data-act="menu">Main menu</button></div>`);
   $('#endBox').innerHTML=h;
 }
 $('#endBox').addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
@@ -3063,7 +3105,7 @@ function toMenu(){leaveNet();MODE='menu';st=null;S0=S1=null;DISC=null;LOC={pilot
 
 function showView(v){for(const el of document.querySelectorAll('.view'))el.hidden=el.dataset.v!==v}
 function setStatus(sel,t,err){const el=$(sel);el.textContent=t;el.classList.toggle('err',!!err)}
-const STARTS=[1,5,10,15,20,25,30,35];
+const STARTS=[1,5,10,15,20,25,30,35,40,45,50,55,60,65,70];
 const titleCase=s=>s.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase());
 for(const id of ['#hStart','#sStart'])$(id).innerHTML=STARTS.map(n=>`<option value="${n}">${n===1?'Level 1':'Level '+n+(BOSS[n]?' · '+titleCase(BOSS[n].nm):'')}</option>`).join('');
 let hostSeat='pilot';

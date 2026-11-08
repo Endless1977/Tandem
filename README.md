@@ -1,6 +1,6 @@
 # Tandem
 
-A two-player online co-op shooter in pixel-art 3D. One player is the **pilot**, the other is the **gunner**, and you share one ship through 35 levels across seven sectors.
+A two-player online co-op shooter in pixel-art 3D. One player is the **pilot**, the other is the **gunner**, and you share one ship through 70 levels across seven themed worlds.
 
 Play it on GitHub Pages: put `index.html` in a repo, enable Pages (Settings → Pages → deploy from `main`), and open the page link.
 
@@ -81,9 +81,9 @@ Commodore 64 style chiptune, generated in the browser. Each sector has its own s
 
 ## Worlds
 
-Every sector is its own world, with its own ground, wall shape, decorations, obstacles, creatures, music and boss:
+Every world has its own theme, with its own ground, wall shape, decorations, obstacles, creatures, music and boss:
 
-| Sector | World | You meet | Boss |
+| World | Theme | You meet | Boss |
 |---|---|---|---|
 | I | Coral Deep (water) | squid, jellyfish, urchins, eels, mantas | Tide Warden, a giant crab |
 | II | Valley of Ra (Egypt) | scarabs, eyes of Horus, sun disks, Bastet cats, falcons, cobras; pyramids, obelisks, ankhs | Sphinx of Ra with two Bastet cats |
@@ -99,14 +99,14 @@ Pick **Normal**, **Hard** or **Extreme** next to the start level. On Hard and Ex
 
 ## Structure
 
-- The enemies are sea creatures: squid, jellyfish, urchins, eels, pufferfish, mantas, anglers, nautiluses and corals. They fly circles, hexagons, squares, figure-eights and zigzags through the screen before leaving.
-- Levels run through a winding corridor with walls, tentacles, antennas and pillars that block the ship and stop shots. Corals on the walls fire slow, light spores.
-- Levels 5, 15 and 25 end with a minor boss; levels 10, 20 and 30 with a big boss that has shield pods to destroy first.
-- Level 35 is the Null Sovereign: two lives. When the first is gone, time freezes while it transforms, and its second form attacks faster and harder.
-- After every fifth level there is a drydock where both players spend shared credits on upgrades. Both players press Ready to continue.
-- On game over you retry from the start of the current five-level block, keeping upgrades and credits.
+- Seven worlds of ten levels each (70 levels). A mini-boss waits at level 5 of every world, the world's end boss at level 10; only after beating the end boss does the next theme begin.
+- End bosses have far more stamina than before; the big ones still need their shield pods destroyed first.
+- The road winds: it curves across the screen and rises and falls like a roller coaster, and the camera follows and tilts with it. The game logic stays straight, so hitboxes are unaffected.
+- Boss fights flatten the road and swing the default camera behind the ship: boss at the top of the screen, ship at the bottom. In that view W/S move forward/back. Every other camera view still works.
+- Level 70 is the Null Sovereign: two lives, a frozen transformation, then a faster and harder second form.
+- After every boss there is a drydock where both players spend shared credits. On game over you retry from the last drydock, keeping upgrades and credits.
 
-Solo practice and the host lobby can start at any boss level (with starting credits) to try the bosses.
+Solo practice and the host lobby can start at any boss level (with starting credits).
 
 ## About the art
 
