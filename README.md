@@ -1,28 +1,41 @@
 # Tandem
 
-A two-player online co-op shooter in pixel-art 3D. One player is the **pilot**, the other is the **gunner**, and you share one ship through 70 levels across seven themed worlds.
+A two-player online co-op shooter in pixel-art 3D. One player is the **pilot**, the other is the **gunner**. Together you fly one ship through **70 levels in seven themed worlds**, from a coral reef to a silicon grid, and finally face the All-Boss Pharaoh.
 
-Play it on GitHub Pages: put `index.html` in a repo, enable Pages (Settings → Pages → deploy from `main`), and open the page link.
+**Play:** https://endless1977.github.io/Tandem/
+
+![Title screen](docs/screenshots/01-title.jpg)
+
+| | |
+|---|---|
+| ![Valley of Ra](docs/screenshots/02-valley-of-ra.jpg) | ![Chase view on the winding road](docs/screenshots/03-chase-view-winding-road.jpg) |
+| *Valley of Ra: the road winds across the screen* | *Chase view: the road climbs, dips and curves* |
+| ![Ship close-up in the Magma Rift](docs/screenshots/04-ship-closeup-magma-rift.jpg) | ![Boss arena](docs/screenshots/05-boss-arena-sphinx-of-ra.jpg) |
+| *Fully equipped ship firing its Side Beams* | *Boss arena: boss at the top, ship at the bottom* |
+| ![Drydock](docs/screenshots/06-drydock.jpg) | ![Ending: fanfare](docs/screenshots/07-ending-fanfare.jpg) |
+| *The drydock after every boss* | *The ending: victory fanfare* |
+| ![Ending: medal ceremony](docs/screenshots/08-ending-medal.jpg) | ![Ending: credits](docs/screenshots/09-ending-credits.jpg) |
+| *For honor, valour, above and beyond duty* | *Rolling credits* |
 
 ## Playing online
 
-1. The host clicks **Host online game**, picks a seat (pilot or gunner) and clicks **Open room**.
+1. The host clicks **Host online game**, picks a seat (pilot or gunner), a start level and a difficulty, then clicks **Open room**.
 2. The host shares the five-letter code, or the invite link (`…/?join=CODE`).
 3. The other player clicks **Join with a code** (or opens the link) and joins.
 4. The host clicks **Launch**.
 
-The two browsers connect directly (PeerJS / WebRTC). The host's browser runs the game, so the host should keep the tab open and in front. Hosting as the pilot gives the smoothest flying; a guest pilot also flies with no input lag, because the guest's ship movement is predicted locally.
+The two browsers connect directly (PeerJS / WebRTC). The host's browser runs the game, so the host should keep the tab open and in front. A guest pilot flies without input lag, because the guest's ship movement is predicted locally. If a partner drops out, the host can continue solo with both seats.
 
-If a partner drops out, the host can continue solo with both seats.
+**Solo practice** lets one player handle both seats, and can start at any boss level with starting credits.
 
 ## Controls
 
 | Seat | Control | Action |
 |---|---|---|
 | Pilot | WASD / arrows | Fly |
-| Pilot | Space (or left click when online) | Prow lasers (forward only) |
+| Pilot | Space (or left click when online) | Prow lasers, plus the Tesla Coil if bought |
 | Pilot | Right click (online) | Barrier field |
-| Gunner | Mouse | Aim the 360° turret |
+| Gunner | Mouse | Aim the 360° turret (green crosshair) |
 | Gunner | Left click | Rapid-fire laser turret |
 | Gunner | Right click | Heavy weapon (Seekers, Rail Lance, EMP) |
 | Gunner | 1–3, wheel | Switch heavy weapon |
@@ -35,38 +48,63 @@ If a partner drops out, the host can continue solo with both seats.
 
 ### Cameras
 
-Each player picks a view independently: **Anamorphic** (default, the classic 2.4:1 top view), **Chase** (behind the ship), **Hull top**, **Cockpit**, and **Gunner seat** (looks along the turret; click to lock the mouse, then move it to turn). In every view except Anamorphic, W/S move forward/back and A/D move sideways.
+Each player picks a view independently: **Anamorphic** (default, the classic 2.4:1 top view), **Chase** (behind the ship), **Hull top**, **Cockpit** and **Gunner seat** (looks along the turret; click to lock the mouse). In every view except Anamorphic, W/S move forward/back and A/D move sideways.
+
+## Structure
+
+- **Seven worlds of ten levels.** A mini-boss waits at level 5 of every world and the world's end boss at level 10. The next theme only begins after you beat the end boss.
+- **The road winds.** It curves across the screen and rises and falls like a roller coaster, and the camera follows and tilts with it. The game logic stays straight, so what you see is what you hit.
+- **Boss fights** flatten the road and swing the default camera behind the ship: boss at the top, ship at the bottom. W/S then move forward and back. Every other camera still works. End bosses have a lot of stamina, and the big ones need their shield pods destroyed first.
+- **Level 70** is the All-Boss Pharaoh (the Null Sovereign). It has two lives: time freezes while it transforms, and its second form attacks faster and harder.
+- **A drydock after every boss**, where both players spend shared credits on upgrades and both press Ready. On game over you retry from the last drydock and keep your upgrades and credits.
+
+### Worlds
+
+| World | Theme | You meet | Mini-boss | End boss |
+|---|---|---|---|---|
+| I | Coral Deep (water) | squid, jellyfish, urchins, eels, mantas | Nautilus Prime | Tide Warden, a giant crab |
+| II | Valley of Ra (Egypt) | scarabs, eyes of Horus, sun disks, Bastet cats, falcons, cobras; pyramids, obelisks, ankhs | Eye of Horus | Sphinx of Ra |
+| III | Bleached Dunes (desert) | vultures, tumbleweeds, tortoises, rattlesnakes, sandworms; cacti, horse skeletons, wells | Sandshell Titan | Dune Scorpion |
+| IV | Magma Rift (lava) | fire bats, flame wisps, phoenixes, crystal eyes; volcanoes, stalagmites, stalactites, crystals | Cinder Phoenix | Magma Colossus |
+| V | Emerald Canopy (jungle) | dragonflies, dart frogs, long-tailed monkeys, chameleons, anacondas; lianas, poison flowers | Canopy Stalker | Corpse Bloom |
+| VI | Silicon Grid (digital) | cursors, floppies, CPU fans, virus bugs, a snake from the snake game; RAM, CPUs, RGB strips | Kernel Daemon | Mainframe Argus |
+| VII | Sovereign's Throne | all worlds torn together | Throne Herald | The All-Boss Pharaoh |
+
+The walls also hold seaweed, geysers that erupt every few seconds, and grabbing kelp that holds the ship and drains it until you shoot it free.
+
+### Difficulty
+
+Choose **Normal**, **Hard** or **Extreme** next to the start level. On Hard and Extreme, the further you get, the more often enemies dodge your shots (a blue MISS) and the harder their weapons hit. Your own ship stays the same.
 
 ## Weapons and upgrades
 
-Every upgrade bolts a visible part onto the ship, so it grows as you buy more. The hitbox stays the small hull.
+Every upgrade bolts a visible part onto the ship. The modules click onto the hull and onto each other: Side Beam cannons against the hull, then the square AA boxes, then the Seeker Pods, then the wing emitters, with the round EMP cylinder on the left end. The ship gets wider with every module, but only the hull itself can be hit.
 
-- **Prow Lasers Mk II–V** (pilot): thicker beams, heavier hits; Mk V pierces.
-- **Wing Emitters** (pilot): extra side and angled lasers.
-- **Turret Core**, **Seeker Pods**, **Rail Lance**, **EMP Burst** (gunner).
-- **Nova Orbs** (automatic): slow orbs that destroy any creature or shot they touch. Sides first, then front and back, up to 12 firing points.
-- **AA Battery** (automatic): homing missiles that launch on their own.
-- **Omega Charge**: everything on screen explodes. One use, then buy it again.
-- Barrier, Deflectors, Hull Plating, Wing Drones, Field Repair, Spare Hull.
+| Seat | Upgrade | What it does |
+|---|---|---|
+| Pilot | Prow Lasers Mk II–V | Thicker beams, heavier hits; Mk V pierces |
+| Pilot | Tesla Coil (4 levels) | A coil on the tail zaps the nearest enemy in short range while the prow fires; the lightning chains to up to 4 enemies |
+| Pilot | Wing Emitters | Extra side and angled lasers from the outer modules |
+| Gunner | Turret Core, Dome Side Guns | Bigger dome, thicker bolts, twin and side barrels |
+| Gunner | Dome Link | Detach the turret dome (see below); +10 s per purchase, costs at least half your credits |
+| Gunner | Seeker Pods, Rail Lance, EMP Burst | Heavy weapons on right click |
+| Auto | Side Beams (5 levels) | Two wing cannons fire forward laser beams every few seconds; thin at first, as wide as the cannon's muzzle at level 5 |
+| Auto | AA Battery | Homing missiles that launch on their own |
+| Auto | Nova Orbs | Slow orbs that destroy any creature or shot they touch, up to 12 firing points |
+| Defense | Sonic Shield (3 levels) | Passively bounces 50 / 65 / 80% of enemy shots off the hull; bounced shots hurt enemies |
+| Defense | Barrier, Deflectors, Hull Plating, Wing Drones | Shields, armour and escorts |
+| Supply | Omega Charge, Field Repair, Spare Hull | Clear the screen once, repair, extra ship |
 
-Credits come from kills, so the more you destroy the more you can buy. Every cleared level also pays a fixed bonus, so you never get stuck.
+Credits come from kills, and every cleared level pays a fixed bonus on top.
 
-## Bonus jellyfish and gunner guns
+**Detachable dome:** with Dome Link the gunner can launch the turret dome (G or middle click). It rides a small armoured copy of the ship, flies to the crosshair, keeps shooting, and rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds plus 10 per Dome Link level, then flies home to recharge. If the ship is destroyed, the dome goes with it.
+
+### Bonus jellyfish and gunner guns
 
 Golden jellyfish drift through now and then. Shoot one and it drops a bonus block for the pilot to fly into:
 
-- **Gunner gun blocks** cycle through colours and letters: **S** Spread, **W** Wave, **D** Side, **F** Forward, **H** Hail (shotgun bursts every 2–3 s). The gunner keeps that gun into the next levels until a different block is taken. Three of the same block in a row upgrades it to Mk II, three more to Mk III. These guns only come from blocks; the shop upgrades the standard turret (dome size, bolt thickness, twin barrels, side guns).
-- **General blocks**: C credits, + repair, S shields, O Omega charge.
-
-**Detachable dome**: the gunner can launch the turret dome on an indestructible platform (G or middle click). It flies to the mouse cursor and keeps shooting, and it rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds, then flies home and recharges. **Dome Link** in the drydock adds 10 seconds per purchase (up to 60 s) and costs at least half of your credits. The dome rides a small armoured copy of your ship. If the ship is destroyed, the dome goes with it.
-
-Weapon modules click onto the hull and onto each other, with no frame: Side Beam cannons against the hull, then the square AA boxes, then the Seeker Pods, then the wing emitters, with the round EMP cylinder on the left end. Shield emitters are small studs on the back. The **Tesla Coil** (Pilot, 4 levels) sits on the tail and, while the prow fires, zaps the nearest enemy within a short range; each level adds range and damage, and the lightning chains to up to 4 enemies. The ship gets wider with each module, but only the hull itself can be hit.
-
-**Sonic Shield** (Defense, 3 levels) passively bounces 50%, 65% or 80% of enemy shots off the hull; the bounced shots turn cyan and hurt enemies. **Side Beams** (Auto, 5 levels) are two wing cannons that fire thin laser beams forward every few seconds; each level makes them thicker, stronger and more frequent.
-
-The walls also hold seaweed, geysers that erupt every few seconds, and grabbing kelp that reaches for the ship, holds it and drains it until you shoot it.
-
-The drydock shows your ship turning in the hangar with everything you have bolted on, and every upgrade card has its own icon.
+- **Gunner gun blocks** cycle through colours and letters: **S** Spread, **W** Wave, **D** Side, **F** Forward, **H** Hail (shotgun bursts every 2–3 s). The gunner keeps that gun into the next levels until a different block is taken. Three of the same block in a row upgrades it to Mk II, three more to Mk III.
+- **General blocks:** C credits, + repair, S shields, O Omega charge.
 
 ## Arcade bonuses
 
@@ -77,43 +115,26 @@ The drydock shows your ship turning in the hangar with everything you have bolte
 
 ## Music
 
-Commodore 64 style chiptune, generated in the browser. Each sector has its own song, the minor bosses, big bosses and the Null Sovereign (both forms) have their own themes, and the music adds drums, snare, lead and faster hi-hats as the screen gets busier.
-
-## Worlds
-
-Every world has its own theme, with its own ground, wall shape, decorations, obstacles, creatures, music and boss:
-
-| World | Theme | You meet | Boss |
-|---|---|---|---|
-| I | Coral Deep (water) | squid, jellyfish, urchins, eels, mantas | Tide Warden, a giant crab |
-| II | Valley of Ra (Egypt) | scarabs, eyes of Horus, sun disks, Bastet cats, falcons, cobras; pyramids, obelisks, ankhs | Sphinx of Ra with two Bastet cats |
-| III | Bleached Dunes (desert) | vultures, tumbleweeds, tortoises, rattlesnakes, sandworms; cacti, horse skeletons, wells | Dune Scorpion |
-| IV | Magma Rift (lava) | fire bats, flame wisps, phoenixes, crystal eyes; volcanoes, stalagmites, stalactites, crystals | Magma Colossus with crystal pods |
-| V | Emerald Canopy (jungle) | dragonflies, dart frogs, long-tailed monkeys, chameleons, anacondas; lianas, poison flowers | Corpse Bloom, a giant carnivorous flower |
-| VI | Silicon Grid (digital) | cursors, floppies, CPU fans, virus bugs, a snake from the snake game; RAM, CPUs, RGB strips | Mainframe Argus with cooling fans |
-| VII | Sovereign's Throne | all worlds torn together | Null Sovereign, pharaoh mask and Ascendant form |
-
-## Difficulty
-
-Pick **Normal**, **Hard** or **Extreme** next to the start level. On Hard and Extreme the further you get, the more often enemies dodge your shots (a blue MISS) and the harder their weapons hit. Your own ship stays the same.
-
-## Structure
-
-- Seven worlds of ten levels each (70 levels). A mini-boss waits at level 5 of every world, the world's end boss at level 10; only after beating the end boss does the next theme begin.
-- End bosses have far more stamina than before; the big ones still need their shield pods destroyed first.
-- The road winds: it curves across the screen and rises and falls like a roller coaster, and the camera follows and tilts with it. The game logic stays straight, so hitboxes are unaffected.
-- Boss fights flatten the road and swing the default camera behind the ship: boss at the top of the screen, ship at the bottom. In that view W/S move forward/back. Every other camera view still works.
-- Level 70 is the Null Sovereign: two lives, a frozen transformation, then a faster and harder second form.
-- After every boss there is a drydock where both players spend shared credits. On game over you retry from the last drydock, keeping upgrades and credits.
-
-Solo practice and the host lobby can start at any boss level (with starting credits).
+Commodore 64 style chiptune, generated in the browser. Each world has its own song, the bosses and both forms of the Pharaoh have their own themes, and the music adds layers as the screen gets busier.
 
 ## The ending
 
-Beat the All-Boss Pharaoh on level 70 and you get the ending: a fanfare with fireworks and a marching band, a medal ceremony ("For honor, valour, above and beyond duty"), the Pharaoh crumbling to pixels, and the rolling credits. **Skip** jumps to the next scene, **Main menu** leaves.
+Beat the All-Boss Pharaoh and you get the ending: a fanfare with fireworks and a marching band, a medal ceremony ("For honor, valour, above and beyond duty"), the Pharaoh crumbling to pixels, and the rolling credits, all to a chiptune fanfare. **Skip** jumps to the next scene, **Main menu** leaves.
 
-Own end music: put the file next to `index.html` and set `const ENDING_TRACK='ending.mp3';` (search for `ENDING_TRACK`). Leave it empty for the built-in chiptune fanfare.
+To use your own end music, put the file next to `index.html` and set `const ENDING_TRACK='ending.mp3';` (search for `ENDING_TRACK`). Leave it empty for the built-in fanfare.
 
-## About the art
+## Credits
 
-All ships and enemies are pixel sprites drawn in code and extruded into voxels. The game renders at 960×400; every sprite is doubled with edge smoothing (Scale2x) and lit per voxel from the upper left, and the player ship is drawn at double pixel density with its own height map. GLB models are not needed. If you want your own ship designs, they can be converted into the same voxel style.
+- **Lead designer:** Joris Zuijdervliet (aka Endless)
+- **Menthol support:** Bjorn Zuijdervliet (aka Scotty)
+- **Music:** Rutger Pot (aka Sir Quakealot)
+- **Code, pixel art and sound engine:** Claude, by Anthropic
+
+Inspired by old DOS games. Let's hear it for the early developers!
+
+## Technical notes
+
+- One self-contained `index.html`; three.js and PeerJS load from a CDN.
+- Ships and enemies are pixel sprites drawn in code and extruded into voxels. The game renders at 960×400; every sprite is doubled with edge smoothing (Scale2x) and lit per voxel from the upper left, and the player ship is drawn at double pixel density with its own height map.
+- The winding road is a vertex-shader bend applied to the whole scene, so the simulation and the network code stay straight.
+- To host it yourself: put `index.html` in a repo, enable GitHub Pages (Settings → Pages → deploy from `main`), and open the page link.
