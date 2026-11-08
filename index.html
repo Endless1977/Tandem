@@ -1613,19 +1613,19 @@ const noteOf=(S,deg,oct)=>{const n=S.sc.length,o=Math.floor(deg/n),i=((deg%n)+n)
 function musInit(){
   if(!AC||MUSIC.bus)return;
   const flt=AC.createBiquadFilter();flt.type='lowpass';flt.frequency.value=2500;flt.Q.value=3;
-  const bus=AC.createGain();bus.gain.value=MUSIC.on?.34:0;const dry=AC.createGain();dry.gain.value=.9;
+  const bus=AC.createGain();bus.gain.value=MUSIC.on?.52:0;const dry=AC.createGain();dry.gain.value=.9;
   flt.connect(bus);dry.connect(bus);bus.connect(OUTB);MUSIC.flt=flt;MUSIC.bus=bus;MUSIC.dry=dry;
   const pw=d=>{const n=40,re=new Float32Array(n),im=new Float32Array(n);for(let k=1;k<n;k++)re[k]=2/(k*Math.PI)*Math.sin(k*Math.PI*d);return AC.createPeriodicWave(re,im)};
   MUSIC.wv={p12:pw(.125),p25:pw(.25),p50:pw(.5)};
   MUSIC.next=AC.currentTime+.1;setInterval(musTick,25);
 }
-function setMusic(on){MUSIC.on=on;try{localStorage.setItem('tandem-music',on?'on':'off')}catch(e){}if(MUSIC.bus)MUSIC.bus.gain.setTargetAtTime(on?.34:0,AC.currentTime,.1);$('#bMusic').textContent='Music '+(on?'on':'off')}
+function setMusic(on){MUSIC.on=on;try{localStorage.setItem('tandem-music',on?'on':'off')}catch(e){}if(MUSIC.bus)MUSIC.bus.gain.setTargetAtTime(on?.52:0,AC.currentTime,.1);$('#bMusic').textContent='Music '+(on?'on':'off')}
 function musTick(){
   if(!AC||AC.state!=='running')return;
   if(!MUSIC.S){MUSIC.S=buildSong(MUSIC.want);MUSIC.key=MUSIC.want;MUSIC.step=0}
-  if(MUSIC.next<AC.currentTime-.2)MUSIC.next=AC.currentTime+.05;
+  if(MUSIC.next<AC.currentTime-.05)MUSIC.next=AC.currentTime+.05;
   let guard=0;
-  while(MUSIC.next<AC.currentTime+.12&&guard++<64){
+  while(MUSIC.next<AC.currentTime+.3&&guard++<64){
     if(MUSIC.want!==MUSIC.key&&(MUSIC.step%16===0||(MUSIC.urgent&&MUSIC.step%4===0))){MUSIC.S=buildSong(MUSIC.want);MUSIC.key=MUSIC.want;MUSIC.step=0;MUSIC.urgent=false}
     const S=MUSIC.S,sd=15/S.bpm;
     if(MUSIC.on)try{playStep(S,MUSIC.step,MUSIC.next,sd)}catch(e){}
@@ -1645,7 +1645,7 @@ function snare(t){dnoise(t,.14,.26,'bandpass',1900);const o=AC.createOscillator(
 function hat(t,v){dnoise(t,.035,v,'highpass',7500)}
 function playStep(S,i,t,sd){
   if(S.once&&i>=S.prog.length*16)return;
-  const s=i%16,bar=Math.floor(i/16)%S.prog.length,d=S.prog[bar],I=clamp(MUSIC.int,S.floor||0,S.ceil||1),Wv=MUSIC.wv,F=MUSIC.flt;
+  const s=i%16,bar=Math.floor(i/16)%S.prog.length,d=S.prog[bar],I=clamp(MUSIC.int,S.floor??.6,S.ceil||1),Wv=MUSIC.wv,F=MUSIC.flt;
   if(s===0)F.frequency.setTargetAtTime(500+I*5200,t,.3);
   if(S.drone){if(s===0){vn(t,S.root-12,sd*16,Wv.p50,.13,F,.9);vn(t,S.root-11,sd*16,'sawtooth',.05,F,.9)}if(s%4===0)hat(t,.03);return}
   const bp=S.bass[s];if(bp!==null&&bp!==undefined)vn(t,noteOf(S,d,-1)+bp,sd*(S.boss?.85:1.7),Wv.p50,.15,F,.5);
@@ -2335,7 +2335,7 @@ addEventListener('keydown',e=>{
   if(e.repeat)return;
   if(e.code==='KeyC')cycleCam();
   if(e.code==='KeyX')LIN.uq++;
-  if(e.code==='KeyM')setMusic(!MUSIC.on);
+  if(e.code==='KeyM'){audio();setMusic(!MUSIC.on)}
   if(e.code==='KeyF'||e.code==='ShiftLeft'||e.code==='ShiftRight')LIN.bq++;
   if(!LOC.gunner)return;
   if(e.code==='KeyG')LIN.dq++;
@@ -3001,7 +3001,7 @@ function frame(now){
     if(NET.conn&&NET.conn.open&&now-lastPing>2000){lastPing=now;send({t:'pg',ts:now})}
   }else V=null;
   if(NET.partner&&NET.lastRx&&now-NET.lastRx>6000){if(MODE==='host'&&st)partnerLost();else if(MODE==='client'&&S1)hostLost()}
-  if(AC)musUpdate(V,dt);
+  if(AC){musUpdate(V,dt);musTick()}
   render(V,dt,now);hud(V);
   }catch(err){console.error(err)}
   requestAnimationFrame(frame);
