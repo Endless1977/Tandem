@@ -102,4 +102,4 @@ Solo practice and the host lobby can start at any boss level (with starting cred
 
 ## About the art
 
-All ships and enemies are pixel sprites drawn in code and extruded into voxels. GLB models are not needed. If you want your own ship designs, they can be converted into the same voxel style.
+All ships and enemies are pixel sprites drawn in code and extruded into voxels. The game renders at 960×400; every sprite is doubled with edge smoothing (Scale2x) and lit per voxel from the upper left, and the player ship is drawn at double pixel density with its own height map. GLB models are not needed. If you want your own ship designs, they can be converted into the same voxel style.
