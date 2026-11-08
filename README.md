@@ -108,6 +108,12 @@ Pick **Normal**, **Hard** or **Extreme** next to the start level. On Hard and Ex
 
 Solo practice and the host lobby can start at any boss level (with starting credits).
 
+## The ending
+
+Beat the All-Boss Pharaoh on level 70 and you get the ending: a fanfare with fireworks and a marching band, a medal ceremony ("For honor, valour, above and beyond duty"), the Pharaoh crumbling to pixels, and the rolling credits. **Skip** jumps to the next scene, **Main menu** leaves.
+
+Own end music: put the file next to `index.html` and set `const ENDING_TRACK='ending.mp3';` (search for `ENDING_TRACK`). Leave it empty for the built-in chiptune fanfare.
+
 ## About the art
 
 All ships and enemies are pixel sprites drawn in code and extruded into voxels. The game renders at 960×400; every sprite is doubled with edge smoothing (Scale2x) and lit per voxel from the upper left, and the player ship is drawn at double pixel density with its own height map. GLB models are not needed. If you want your own ship designs, they can be converted into the same voxel style.
