@@ -26,7 +26,7 @@ If a partner drops out, the host can continue solo with both seats.
 | Gunner | Left click | Rapid-fire laser turret |
 | Gunner | Right click | Heavy weapon (Seekers, Rail Lance, EMP) |
 | Gunner | 1–3, wheel | Switch heavy weapon |
-| Gunner | Q / E | Steer the tail (if bought) |
+| Gunner | G / middle click | Launch or recall the dome |
 | Both | F / Shift | Barrier field |
 | Both | X | Detonate the Omega charge (if bought) |
 | Both | C | Cycle your own camera |
@@ -58,7 +58,7 @@ Golden jellyfish drift through now and then. Shoot one and it drops a bonus bloc
 - **Gunner gun blocks** cycle through colours and letters: **S** Spread, **W** Wave, **D** Side, **F** Forward, **H** Hail (shotgun bursts every 2–3 s). The gunner keeps that gun into the next levels until a different block is taken. Three of the same block in a row upgrades it to Mk II, three more to Mk III. These guns only come from blocks; the shop upgrades the standard turret (dome size, bolt thickness, twin barrels, side guns).
 - **General blocks**: C credits, + repair, S shields, O Omega charge.
 
-The **Gunner Tail** is an expensive special upgrade: a steerable tail carries the gunner dome behind the ship. It takes hits for the ship, and when it is destroyed the dome returns to the hull.
+**Detachable dome**: the gunner can launch the turret dome on an indestructible platform (G or middle click). It flies to the mouse cursor and keeps shooting, and it rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds, then flies home and recharges. **Dome Link** in the drydock adds 10 seconds per purchase (up to 60 s) and costs at least half of your credits. If the ship is destroyed, the dome goes with it.
 
 The walls also hold seaweed, geysers that erupt every few seconds, and grabbing kelp that reaches for the ship, holds it and drains it until you shoot it.
 
@@ -74,6 +74,20 @@ The drydock shows your ship turning in the hangar with everything you have bolte
 ## Music
 
 Commodore 64 style chiptune, generated in the browser. Each sector has its own song, the minor bosses, big bosses and the Null Sovereign (both forms) have their own themes, and the music adds drums, snare, lead and faster hi-hats as the screen gets busier.
+
+## Worlds
+
+Every sector is its own world, with its own ground, wall shape, decorations, obstacles, creatures, music and boss:
+
+| Sector | World | You meet | Boss |
+|---|---|---|---|
+| I | Coral Deep (water) | squid, jellyfish, urchins, eels, mantas | Tide Warden, a giant crab |
+| II | Valley of Ra (Egypt) | scarabs, eyes of Horus, sun disks, Bastet cats, falcons, cobras; pyramids, obelisks, ankhs | Sphinx of Ra with two Bastet cats |
+| III | Bleached Dunes (desert) | vultures, tumbleweeds, tortoises, rattlesnakes, sandworms; cacti, horse skeletons, wells | Dune Scorpion |
+| IV | Magma Rift (lava) | fire bats, flame wisps, phoenixes, crystal eyes; volcanoes, stalagmites, stalactites, crystals | Magma Colossus with crystal pods |
+| V | Emerald Canopy (jungle) | dragonflies, dart frogs, long-tailed monkeys, chameleons, anacondas; lianas, poison flowers | Corpse Bloom, a giant carnivorous flower |
+| VI | Silicon Grid (digital) | cursors, floppies, CPU fans, virus bugs, a snake from the snake game; RAM, CPUs, RGB strips | Mainframe Argus with cooling fans |
+| VII | Sovereign's Throne | all worlds torn together | Null Sovereign, pharaoh mask and Ascendant form |
 
 ## Structure
 
