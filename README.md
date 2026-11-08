@@ -58,7 +58,9 @@ Golden jellyfish drift through now and then. Shoot one and it drops a bonus bloc
 - **Gunner gun blocks** cycle through colours and letters: **S** Spread, **W** Wave, **D** Side, **F** Forward, **H** Hail (shotgun bursts every 2–3 s). The gunner keeps that gun into the next levels until a different block is taken. Three of the same block in a row upgrades it to Mk II, three more to Mk III. These guns only come from blocks; the shop upgrades the standard turret (dome size, bolt thickness, twin barrels, side guns).
 - **General blocks**: C credits, + repair, S shields, O Omega charge.
 
-**Detachable dome**: the gunner can launch the turret dome on an indestructible platform (G or middle click). It flies to the mouse cursor and keeps shooting, and it rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds, then flies home and recharges. **Dome Link** in the drydock adds 10 seconds per purchase (up to 60 s) and costs at least half of your credits. If the ship is destroyed, the dome goes with it.
+**Detachable dome**: the gunner can launch the turret dome on an indestructible platform (G or middle click). It flies to the mouse cursor and keeps shooting, and it rams anything it touches: two passes kill an ordinary creature. It stays out 10 seconds, then flies home and recharges. **Dome Link** in the drydock adds 10 seconds per purchase (up to 60 s) and costs at least half of your credits. The dome rides a small armoured copy of your ship. If the ship is destroyed, the dome goes with it.
+
+**Sonic Shield** (Defense, 3 levels) passively bounces 50%, 65% or 80% of enemy shots off the hull; the bounced shots turn cyan and hurt enemies. **Side Beams** (Auto, 5 levels) fire thin laser beams straight up and down every few seconds; each level makes them thicker, stronger and more frequent.
 
 The walls also hold seaweed, geysers that erupt every few seconds, and grabbing kelp that reaches for the ship, holds it and drains it until you shoot it.
 
