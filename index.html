@@ -249,6 +249,7 @@ input#jCode{font-family:var(--f-d);letter-spacing:.4em;text-transform:uppercase;
     <div class="spacer"></div>
     <button class="viewBtn" id="bView">View · <span id="viewName">Anamorphic</span> <kbd>C</kbd></button>
     <button class="viewBtn hideS" id="bMusic">Music on</button>
+    <button class="viewBtn hideS" id="bArt">Art HD</button>
     <div class="zoom"><button class="viewBtn" id="bZoomOut" aria-label="Zoom out">−</button><button class="viewBtn" id="bZoomIn" aria-label="Zoom in">+</button></div>
     <span id="net" class="hideS"></span>
   </footer>
@@ -2452,6 +2453,7 @@ addEventListener('keydown',e=>{
   if(e.code==='KeyC')cycleCam();
   if(e.code==='KeyX')LIN.uq++;
   if(e.code==='KeyM'){audio();setMusic(!MUSIC.on)}
+  if(e.code==='KeyH')setArt(!ART_HD);
   if(e.code==='KeyF'||e.code==='ShiftLeft'||e.code==='ShiftRight')LIN.bq++;
   if(!LOC.gunner)return;
   if(e.code==='KeyG')LIN.dq++;
@@ -2556,12 +2558,26 @@ function initGL(){
   planetSpr=new THREE.Sprite(new THREE.SpriteMaterial({map:pt,fog:false,depthWrite:false}));planetSpr.position.set(3600,420,-900);planetSpr.scale.set(2200,2200,1);scene.add(planetSpr);
 }
 let sectorIdx=-1;
+// AI floors are not seamless: mirror them 2x2 into one tile so the edges always meet
+function hdFloor(si){const src=HDART['floor'+si],n=512,c=document.createElement('canvas');c.width=c.height=n;const g=c.getContext('2d');g.imageSmoothingQuality='high';
+  for(let i=0;i<2;i++)for(let j=0;j<2;j++){g.save();g.translate(i?n:0,j?n:0);g.scale(i?-1:1,j?-1:1);g.drawImage(src,0,0,n/2,n/2);g.restore()}return c}
 function setSector(si){
   if(si===sectorIdx||!GLOK)return;sectorIdx=si;const S=SECT[si];
   scene.background.set(S.bg);scene.fog.color.set(S.bg);
-  floorTex.image=genFloor(si);floorTex.needsUpdate=true;const neb=si===0||si===6,rp=neb?1.6:4.5;floorTex.repeat.set(rp,rp);floorTex.magFilter=floorTex.minFilter=neb?THREE.LinearFilter:THREE.NearestFilter;
+  const hdf=ART_HD&&HDREADY&&HDART['floor'+si];floorTex.image=hdf?hdFloor(si):genFloor(si);floorTex.needsUpdate=true;const neb=si===0||si===6,rp=hdf?2.2:neb?1.6:4.5;floorTex.repeat.set(rp,rp);floorTex.magFilter=floorTex.minFilter=(neb||hdf)?THREE.LinearFilter:THREE.NearestFilter;
   const m=planetSpr.material.map;m.image=genPlanet(si);m.needsUpdate=true;
 }
+/* ---- HD art: AI-upscaled versions of every sprite (art/hd/atlas.png) feed the same voxel models at double density ---- */
+let ART_HD=true;try{ART_HD=localStorage.getItem('tandem-art')!=='pixel'}catch(e){}
+const HDART={};let HDREADY=false;
+function hdKey(key){if(HDART[key])return key;const m=key.match(/^(.*?)([012])$/);if(m&&HDART[m[1]]&&!/rock/.test(m[1]))return m[1];return null}
+function loadHD(){fetch('art/hd/atlas.json').then(r=>r.json()).then(pos=>{const img=new Image();img.onload=()=>{
+    for(const k in pos){const [x,y,w,h]=pos[k],c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(img,x,y,w,h,0,0,w,h);HDART[k]=c}
+    HDREADY=true;if(ART_HD)artRefresh()};img.src='art/hd/atlas.png'}).catch(()=>{})}
+function artRefresh(){for(const k in MODELS){const M=MODELS[k];for(const m of M.list){if(m.parent)m.parent.remove(m)}delete MODELS[k]}
+  for(const k in ICACHE)delete ICACHE[k];sectorIdx=-1;const b=document.getElementById('bArt');if(b)b.textContent='Art '+(ART_HD?'HD':'pixel')}
+function setArt(hd){ART_HD=hd;try{localStorage.setItem('tandem-art',hd?'hd':'pixel')}catch(e){}artRefresh()}
+function hdCanvas(key,w,h){const src=HDART[hdKey(key)],c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.imageSmoothingEnabled=true;g.imageSmoothingQuality='high';g.drawImage(src,0,0,w,h);return c}
 // Scale2x/EPX: doubles a sprite and rounds off its staircase edges
 function hd2(src){const w=src.width,h=src.height,d=src.getContext('2d').getImageData(0,0,w,h).data,o=document.createElement('canvas');o.width=w*2;o.height=h*2;
   const og=o.getContext('2d'),im=og.createImageData(w*2,h*2),od=new Uint32Array(im.data.buffer),sd=new Uint32Array(d.buffer.slice(0));
@@ -2572,17 +2588,19 @@ function hd2(src){const w=src.width,h=src.height,d=src.getContext('2d').getImage
   og.putImageData(im,0,0);return o}
 function model(key){
   if(MODELS[key])return MODELS[key];
-  const S=SRC[key];let c=S.c,px=S.px,mh=S.maxH,un=S.unit;
-  if(px===1&&!S.ah){c=hd2(c);px=.5;mh*=2;un/=2}
+  const S=SRC[key];let c=S.c,px=S.px,mh=S.maxH,un=S.unit;const hd=ART_HD&&HDREADY&&!!hdKey(key);
+  if(hd){c=hdCanvas(key,S.c.width*2,S.c.height*2);px=S.px/2;mh=S.maxH*2;un=S.unit/2}
+  else if(px===1&&!S.ah){c=hd2(c);px=.5;mh*=2;un/=2}
+  const AT=hd?110:0,AH=S.ah&&!hd;
   const w=c.width,h=c.height,d=c.getContext('2d').getImageData(0,0,w,h).data;
-  const D=new Int16Array(w*h);for(let i=0;i<w*h;i++)D[i]=d[i*4+3]>0?99:0;
+  const D=new Int16Array(w*h);for(let i=0;i<w*h;i++)D[i]=d[i*4+3]>AT?99:0;
   const Dat=(x,y)=>x<0||y<0||x>=w||y>=h?0:D[y*w+x];
   for(let p=0;p<mh;p++)for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=y*w+x;if(!D[i])continue;D[i]=Math.min(D[i],Math.min(Dat(x-1,y),Dat(x+1,y),Dat(x,y-1),Dat(x,y+1))+1)}
   const items=[],rr=mulberry(key.length*977+w*31+h);
   for(let y=0;y<h;y++)for(let x=0;x<w;x++){const i=y*w+x;if(!D[i])continue;const k=i*4,low=S.low&&S.low.has(d[k]+','+d[k+1]+','+d[k+2]);
-    const dd=Math.min(D[i],mh),hh=low?S.unit*.45:dd*un*(S.ah?Math.min(1.1,d[k+3]/255*1.0):1);
+    const dd=Math.min(D[i],mh),hh=low?S.unit*.45:dd*un*(AH?Math.min(1.1,d[k+3]/255*1.0):1);
     // light from the upper left: bevel highlight, shadowed lower-right edges, rounded height falloff, faint grain
-    let L=1;if(!low){L=.8+.24*dd/mh;if(Dat(x-1,y-1)<D[i])L*=1.16;if(Dat(x+1,y+1)<D[i])L*=.8;L*=.97+rr()*.06}
+    let L=1;if(hd)L=.9+.16*dd/mh;else if(!low){L=.8+.24*dd/mh;if(Dat(x-1,y-1)<D[i])L*=1.16;if(Dat(x+1,y+1)<D[i])L*=.8;L*=.97+rr()*.06}
     items.push({x,y,hh,r:Math.min(1,d[k]/255*L),g:Math.min(1,d[k+1]/255*L),b:Math.min(1,d[k+2]/255*L),o:rr()})}
   items.sort((a,b)=>a.o-b.o);
   const mesh=new THREE.InstancedMesh(MAT.box,MAT.base,items.length),m4=new THREE.Matrix4(),col=new THREE.Color();
@@ -3084,7 +3102,7 @@ function hud(V){
 }
 function mySeat(){if(MODE==='solo'||(MODE==='host'&&!NET.partner))return 'both';return LOC.pilot?'p':'g'}
 const ICON={rgun:'a_rgun',sonic:'a_sonic',sbeam:'a_sbeam',pcannon:'a_prow',spread:'a_wing',turret:'i_dome',tside:'i_tside',dlink:'miniship',missile:'a_pod',rail:'a_spine',emp:'a_emp',orb:'a_orb',aa:'a_aa',barrier:'a_ring',shield:'a_node',hull:'a_plate',drone:'wing',ult:'a_war',repair:'ship',life:'ship'};
-const ICACHE={};const iconURL=id=>{const k=ICON[id];if(!k||!SRC[k])return '';return ICACHE[k]||(ICACHE[k]=SRC[k].c.toDataURL())};
+const ICACHE={};const iconURL=id=>{const k=ICON[id];if(!k||!SRC[k])return '';return ICACHE[k]||(ICACHE[k]=(ART_HD&&HDREADY&&HDART[k]?HDART[k]:SRC[k].c).toDataURL())};
 function renderShop(V){
   const key=JSON.stringify([V.up,V.cr,V.rd,V.lv,V.li,Math.ceil(V.ship.hp),V.gw]);if(HC.shop===key)return;HC.shop=key;
   $('#shopTitle').textContent=V.last?'Refit after level '+V.lv:'Refit before level '+(V.lv+1);$('#shopCred').textContent=fmt(V.cr);
@@ -3343,6 +3361,7 @@ const copy=t=>{try{navigator.clipboard.writeText(t).catch(()=>{})}catch(e){}};
 $('#bCopyCode').onclick=()=>copy(NET.code);
 $('#bCopyLink').onclick=()=>copy(location.origin+location.pathname+'?join='+NET.code);
 $('#bView').onclick=()=>cycleCam();
+$('#bArt').onclick=()=>setArt(!ART_HD);$('#bArt').textContent='Art '+(ART_HD?'HD':'pixel');loadHD();
 $('#bMusic').onclick=()=>{audio();setMusic(!MUSIC.on)};$('#bMusic').textContent='Music '+(MUSIC.on?'on':'off');
 $('#bZoomIn').onclick=()=>zoomCam(1);$('#bZoomOut').onclick=()=>zoomCam(-1);
 {const j=new URLSearchParams(location.search).get('join');if(j){showView('join');$('#jCode').value=j.toUpperCase().slice(0,5)}}

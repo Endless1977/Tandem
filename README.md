@@ -45,6 +45,7 @@ The two browsers connect directly (PeerJS / WebRTC). The host's browser runs the
 | Both | C | Cycle your own camera |
 | Both | + / − (or Ctrl + wheel) | Zoom your camera in or out |
 | Both | M | Music on/off |
+| Both | H (or the Art button) | Switch between HD art and the original pixel art |
 
 ### Cameras
 
@@ -131,6 +132,10 @@ To use your own end music, put the file next to `index.html` and set `const ENDI
 - **Code, pixel art and sound engine:** Claude, by Anthropic
 
 Inspired by old DOS games. Let's hear it for the early developers!
+
+## HD art
+
+All graphics were upscaled with an AI from the collage in `art/collage.png`. The game cuts them back into sprites (`art/upscaled/`, packed into `art/hd/atlas.png`) and builds its 3D voxel models from them at double density, so sizes and hitboxes stay exactly the same. The AI floors are mirrored into seamless tiles. Press **H** or the **Art** button to switch back to the original pixel art; each player chooses for themselves. Sprites the AI left out (`a_ring`, `jun_kelpc`, `lav_stalag`, `dig_rock1`) keep their pixel version.
 
 ## Technical notes
 
