@@ -2526,7 +2526,7 @@ function initGL(){
   const g=new THREE.BoxGeometry(1,1,1),shade=[.72,.6,1,.32,.82,.5],col=[];for(let f=0;f<6;f++)for(let v=0;v<4;v++)col.push(shade[f],shade[f],shade[f]);
   g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));MAT.box=g;
   const mb=(k,sx,sy,sz,c,max=700)=>{const m=new THREE.InstancedMesh(new THREE.BoxGeometry(sx,sy,sz),new THREE.MeshBasicMaterial({color:c}),max);m.count=0;m.frustumCulled=false;scene.add(m);BUL[k]={m,max,n:0}};
-  mb('e0',2.4,2.4,2.4,'#ff6a3d');mb('e1',3.4,3.4,3.4,'#a46bff');mb('e2',4.5,1.4,1.4,'#ffcf52');mb('e3',5,4,5,'#ff3d6a');mb('e4',2.4,2.4,2.4,'#9cffb0',200);mb('erc',2.6,2.6,2.6,'#7fe6ff',300);
+  mb('e0',2.4,2.4,2.4,'#ff6a3d');mb('e1',3.4,3.4,3.4,'#a46bff');for(const k of ['e0','e1']){BUL[k].m.geometry.dispose();BUL[k].m.geometry=new THREE.IcosahedronGeometry(k==='e0'?1.45:2,1)}mb('e2',4.5,1.4,1.4,'#ffcf52');mb('e3',5,4,5,'#ff3d6a');mb('e4',2.4,2.4,2.4,'#9cffb0',200);mb('erc',2.6,2.6,2.6,'#7fe6ff',300);for(const k of ['e4','erc']){BUL[k].m.geometry.dispose();BUL[k].m.geometry=new THREE.IcosahedronGeometry(1.5,1)}
   mb('p0',6,1,1,'#3fe8ff');mb('p1',3.2,1.2,1.2,'#ffb547');mb('p2',3.6,1.6,1.6,'#e8eeff');mb('p3',9,2.6,3,'#8ff6ff',50);mb('p4',2.4,1.2,1.2,'#71f4d0',200);
   mb('p5',2.8,2.8,2.8,'#9ffff0',120);BUL.p5.m.material=new THREE.MeshBasicMaterial({color:'#7cffe0',transparent:true,opacity:.85,blending:THREE.AdditiveBlending,depthWrite:false});mb('p6',3,1.2,1.2,'#ffd0a0',120);mb('p7',3.6,1.6,1.6,'#7ff6ff',200);mb('p8',2,2,2,'#f2f6ff',200);
   // scenery
@@ -2620,7 +2620,18 @@ function framesBegin(){for(const k in MODELS)MODELS[k].used=0;for(const k in POO
 function framesEnd(){for(const k in MODELS){const M=MODELS[k];for(let i=M.used;i<M.list.length;i++)M.list[i].visible=false}
   for(const k in POOLS){const P=POOLS[k];for(let i=P.used;i<P.list.length;i++)P.list[i].visible=false}
   for(const k in BUL){const B=BUL[k];B.m.count=B.n;B.m.instanceMatrix.needsUpdate=true}}
-function addBul(key,x,y,a,h=0,sl=1,sw=1){const B=BUL[key];if(B.n>=B.max)return;DUM.position.set(x-240,h,y-100);DUM.rotation.set(0,-a,0);DUM.scale.set(sl,sw,sw);DUM.updateMatrix();B.m.setMatrixAt(B.n++,DUM.matrix)}
+// energy glow behind the small shots: an additive point sprite in the shot's own colour
+const GLOWK={e0:[11,'#ff7a3c'],e1:[14,'#b47bff'],e2:[9,'#ffcf52'],e4:[10,'#9cffb0'],erc:[11,'#7fe6ff'],p0:[7,'#3fe8ff'],p1:[7,'#ffb547'],p2:[7,'#e8eeff'],p4:[7,'#71f4d0']};
+let GLW=null;const GLN=2400;
+function glowInit(){const c=document.createElement('canvas');c.width=c.height=64;const g=c.getContext('2d'),gr=g.createRadialGradient(32,32,0,32,32,32);
+  gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.18,'rgba(255,255,255,.85)');gr.addColorStop(.45,'rgba(255,255,255,.28)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);
+  const tex=new THREE.CanvasTexture(c);GLW={};for(const sz of [7,9,10,11,14]){const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(GLN*3),3));geo.setAttribute('color',new THREE.BufferAttribute(new Float32Array(GLN*3),3));
+    const pts=new THREE.Points(geo,new THREE.PointsMaterial({size:sz*3.2,map:tex,vertexColors:true,transparent:true,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));pts.frustumCulled=false;scene.add(pts);GLW[sz]={pts,n:0}}}
+function glowReset(){if(!GLW)glowInit();for(const k in GLW)GLW[k].n=0}
+function glowAdd(key,x,y,h){const g=GLOWK[key];if(!g||!GLW)return;const G=GLW[g[0]];if(G.n>=GLN)return;const P=G.pts.geometry.attributes.position.array,C=G.pts.geometry.attributes.color.array,i=G.n*3;
+  P[i]=x-240;P[i+1]=h;P[i+2]=y-100;RC3.set(g[1]);C[i]=RC3.r;C[i+1]=RC3.g;C[i+2]=RC3.b;G.n++}
+function glowCommit(){for(const k in GLW){const G=GLW[k];G.pts.geometry.setDrawRange(0,G.n);G.pts.geometry.attributes.position.needsUpdate=true;G.pts.geometry.attributes.color.needsUpdate=true}}
+function addBul(key,x,y,a,h=0,sl=1,sw=1){const B=BUL[key];if(B.n>=B.max)return;glowAdd(key,x,y,h);DUM.position.set(x-240,h,y-100);DUM.rotation.set(0,-a,0);DUM.scale.set(sl,sw,sw);DUM.updateMatrix();B.m.setMatrixAt(B.n++,DUM.matrix)}
 function beamMesh(){return new THREE.Mesh(unitBox,new THREE.MeshBasicMaterial({color:'#ff4d5e',transparent:true,opacity:.6,blending:THREE.AdditiveBlending,depthWrite:false}))}
 const ringGeo=new THREE.RingGeometry(.86,1,48);
 function ringMesh(){return new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:'#fff',transparent:true,opacity:1,blending:THREE.AdditiveBlending,depthWrite:false,side:THREE.DoubleSide}))}
@@ -2783,6 +2794,26 @@ const STR={
 };
 const TIPC=[[1,.24,.94],[.48,.91,1],[.24,1,.48],[1,.89,.23]];
 function pickW(list,r){let t=0;for(const p of list)t+=p[1];let x=r*t;for(const p of list){x-=p[1];if(x<=0)return p}return list[list.length-1]}
+// smooth rounded rim along the corridor edge on the player's side: hides the blocky staircase of the wall columns
+const RIMP=10,RIMN=760;let RIMS=null;
+function rimProfile(r){const P=[[.6,-4]];for(let i=0;i<=6;i++){const a=i/6*Math.PI/2;P.push([.6-r+r*Math.cos(a),-r+r*Math.sin(a)])}P.push([-r-2.5,0]);P.push([-r-7,-.6]);return P}
+function buildRims(){RIMS=[0,1].map(()=>{const g=new THREE.BufferGeometry(),pos=new Float32Array(RIMN*RIMP*3),col=new Float32Array(RIMN*RIMP*3),idx=[];
+  for(let i=0;i<RIMN-1;i++)for(let j=0;j<RIMP-1;j++){const a=i*RIMP+j,b=a+RIMP;idx.push(a,b,a+1,a+1,b,b+1)}
+  g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setAttribute('color',new THREE.BufferAttribute(col,3));g.setIndex(idx);
+  const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({vertexColors:true,side:THREE.DoubleSide}));m.frustumCulled=false;scene.add(m);return m})}
+const RC3=new THREE.Color(),RC4=new THREE.Color();
+function drawRims(ds,wa,u0,u1){if(!RIMS)buildRims();const step=2,n=Math.min(RIMN,Math.floor((u1-u0)/step)+1);
+  for(let side=0;side<2;side++){const m=RIMS[side],pos=m.geometry.attributes.position.array,col=m.geometry.attributes.color.array,dir=side?-1:1;
+    const m0=n+12,WD=new Float32Array(m0),WT=new Float32Array(m0),MX=new Float32Array(m0);
+    for(let q=0;q<m0;q++){const uu=u0+(q-6)*step;WD[q]=wallDepth(uu,side);WT[q]=wallTop(Math.floor(uu/4),side,thAt(uu),wa)}
+    for(let q=1;q<m0-1;q++)MX[q]=Math.max(WD[q-1],WD[q],WD[q+1]);MX[0]=WD[0];MX[m0-1]=WD[m0-1];
+    for(let i=0;i<n;i++){const u=u0+i*step;let dmax=0,hs=0;
+      for(let k=i+2;k<=i+10;k++){dmax+=MX[k];hs+=WT[k]}
+      const d=dmax/9*wa,ht=Math.min(14,hs/9*.85),r=Math.min(3.2,ht*.45),ye=(side?H-d:d)-100,T=THEME[thAt(u)],WP=T.wall,prof=rimProfile(r);
+      RC3.set(WP[1]);RC4.set(WP[2]);
+      for(let j=0;j<RIMP;j++){const [o,h]=prof[j],k=(i*RIMP+j)*3,yy=ht+h;pos[k]=u-ds-240;pos[k+1]=yy;pos[k+2]=ye+dir*o;
+        const t=clamp((yy+4)/(ht+4),0,1),hl=j>=3&&j<=6?1.35:j>6?1.05:.55+.45*t;COL.copy(RC3).lerp(RC4,t*.6).multiplyScalar(hl);col[k]=COL.r;col[k+1]=COL.g;col[k+2]=COL.b}}
+    m.geometry.setDrawRange(0,Math.max(0,(n-1)*(RIMP-1)*6));m.geometry.attributes.position.needsUpdate=true;m.geometry.attributes.color.needsUpdate=true}}
 function drawScenery(Vr,now){
   const ds=Vr.ds||0,wa=Vr.wa??.8;
   let n=0,nj=0,nl=0,nt=0;
@@ -2810,6 +2841,7 @@ function drawScenery(Vr,now){
         COL.setHSL(((u*.004-now*.0004)%1+1)%1,1,.55);LIGHTM.setColorAt(nl,COL);nl++}
     }
   }
+  drawRims(ds,wa,u0,u1);
   // strands growing from the walls
   const SB=24,monkeys=[];
   for(let bk=Math.floor(u0/SB);bk<u1/SB;bk++)for(let side=0;side<2;side++){
@@ -2933,6 +2965,7 @@ function render(Vin,dt,now){
   for(const r of RAILS){const k=r.l/r.m,a=Math.atan2(r.y2-r.y1,r.x2-r.x1),len=Math.hypot(r.x2-r.x1,r.y2-r.y1);
     drawBeamBox(poolGet('beam',beamMesh),r.x1,r.y1,a,len,3*k+.5,4*k+.5,'#5ab4ff',.7*k);drawBeamBox(poolGet('beam',beamMesh),r.x1,r.y1,a,len,1,1.2,'#ffffff',k)}
   const blink=(tFrame*12|0)%2;BUL.e0.m.material.color.set(blink?'#ff5f45':'#ffb03c');
+  glowReset();
   for(const b of Vr.eb)addBul(b.rc?'erc':'e'+b.k,b.x,b.y,Math.atan2(b.vy,b.vx),.5);
   const thick=1+(up.pcannon||0)*.45,orbPulse=1+Math.sin(now/120)*.18;
   for(const p of Vr.pb){const a=Math.atan2(p.vy,p.vx);
@@ -2941,6 +2974,7 @@ function render(Vin,dt,now){
     else if(p.k===1)addBul('p1',p.x,p.y,a,1,1+(up.turret||0)*.15,1+(up.turret||0)*.35);
     else addBul('p'+p.k,p.x,p.y,a,1);
     if((p.k===2||p.k===6)&&R()<.5)part(p.x-p.vx*.02,p.y-p.vy*.02,1,rnd(-6,6),rnd(-6,6),rnd(-2,4),.45,'smoke')}
+  glowCommit();
   for(const r of RINGS){if(!r.m)continue;const m=poolGet('ring',ringMesh),k=1-r.l/r.m,rad=lerp(r.r0,r.r1,k);m.material.color.set(r.c);m.material.opacity=(1-k)*.9;m.position.set(r.x-240,r.h+.5,r.y-100);m.rotation.set(-Math.PI/2,0,0);m.scale.set(Math.max(.1,rad),Math.max(.1,rad),1)}
   writeParticles();
   framesEnd();
