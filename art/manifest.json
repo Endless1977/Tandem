@@ -1,0 +1,1703 @@
+[
+ {
+  "key": "ship",
+  "file": "sprites/01-player/ship.png",
+  "category": "01-player",
+  "world": "",
+  "width": 66,
+  "height": 33,
+  "description": "Player ship, hi-res (nose to the right)"
+ },
+ {
+  "key": "miniship",
+  "file": "sprites/01-player/miniship.png",
+  "category": "01-player",
+  "world": "",
+  "width": 66,
+  "height": 33,
+  "description": "Armoured mini ship that carries the detached dome"
+ },
+ {
+  "key": "dart",
+  "file": "sprites/03-enemies/dart.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 16,
+  "height": 7,
+  "description": "Dart, fast flyer - I Coral Deep"
+ },
+ {
+  "key": "drone",
+  "file": "sprites/03-enemies/drone.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 10,
+  "height": 9,
+  "description": "Drone - I Coral Deep"
+ },
+ {
+  "key": "spinner",
+  "file": "sprites/03-enemies/spinner.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - I Coral Deep"
+ },
+ {
+  "key": "gunship",
+  "file": "sprites/03-enemies/gunship.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 16,
+  "height": 14,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - I Coral Deep"
+ },
+ {
+  "key": "mine",
+  "file": "sprites/03-enemies/mine.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 9,
+  "height": 9,
+  "description": "Mine - I Coral Deep"
+ },
+ {
+  "key": "swooper",
+  "file": "sprites/03-enemies/swooper.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 13,
+  "height": 11,
+  "description": "Swooper - I Coral Deep"
+ },
+ {
+  "key": "sniper",
+  "file": "sprites/03-enemies/sniper.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 13,
+  "height": 8,
+  "description": "Sniper - I Coral Deep"
+ },
+ {
+  "key": "eelh",
+  "file": "sprites/03-enemies/eelh.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 8,
+  "height": 5,
+  "description": "Eel/snake head - I Coral Deep"
+ },
+ {
+  "key": "eels",
+  "file": "sprites/03-enemies/eels.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - I Coral Deep"
+ },
+ {
+  "key": "coral",
+  "file": "sprites/03-enemies/coral.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 9,
+  "height": 9,
+  "description": "Wall turret (coral) - I Coral Deep"
+ },
+ {
+  "key": "bjelly",
+  "file": "sprites/03-enemies/bjelly.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 10,
+  "height": 9,
+  "description": "Bonus jellyfish - I Coral Deep"
+ },
+ {
+  "key": "kelpc",
+  "file": "sprites/03-enemies/kelpc.png",
+  "category": "03-enemies",
+  "world": "I Coral Deep",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - I Coral Deep"
+ },
+ {
+  "key": "i_dome",
+  "file": "sprites/02-ship-attachments/i_dome.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 10,
+  "height": 6,
+  "description": "Shop icon: turret dome"
+ },
+ {
+  "key": "i_tside",
+  "file": "sprites/02-ship-attachments/i_tside.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 12,
+  "height": 9,
+  "description": "Shop icon: dome side guns"
+ },
+ {
+  "key": "i_tail",
+  "file": "sprites/02-ship-attachments/i_tail.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 10,
+  "height": 6,
+  "description": "Shop icon (old tail)"
+ },
+ {
+  "key": "wing",
+  "file": "sprites/02-ship-attachments/wing.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 5,
+  "height": 5,
+  "description": "Wing Drone"
+ },
+ {
+  "key": "a_prow",
+  "file": "sprites/02-ship-attachments/a_prow.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 7,
+  "height": 3,
+  "description": "Prow Lasers barrel"
+ },
+ {
+  "key": "a_wing",
+  "file": "sprites/02-ship-attachments/a_wing.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 8,
+  "height": 3,
+  "description": "Wing Emitter"
+ },
+ {
+  "key": "a_pod",
+  "file": "sprites/02-ship-attachments/a_pod.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 6,
+  "height": 4,
+  "description": "Seeker Pod"
+ },
+ {
+  "key": "a_spine",
+  "file": "sprites/02-ship-attachments/a_spine.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 20,
+  "height": 3,
+  "description": "Rail Lance spine"
+ },
+ {
+  "key": "a_dish",
+  "file": "sprites/02-ship-attachments/a_dish.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 6,
+  "height": 6,
+  "description": "EMP dish (old)"
+ },
+ {
+  "key": "a_orb",
+  "file": "sprites/02-ship-attachments/a_orb.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 3,
+  "height": 3,
+  "description": "Nova Orb emitter"
+ },
+ {
+  "key": "a_aa",
+  "file": "sprites/02-ship-attachments/a_aa.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 7,
+  "height": 7,
+  "description": "AA Battery box"
+ },
+ {
+  "key": "a_ring",
+  "file": "sprites/02-ship-attachments/a_ring.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 3,
+  "height": 7,
+  "description": "Barrier ring"
+ },
+ {
+  "key": "a_sbeam",
+  "file": "sprites/02-ship-attachments/a_sbeam.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 10,
+  "height": 9,
+  "description": "Side Beam cannon"
+ },
+ {
+  "key": "a_emp",
+  "file": "sprites/02-ship-attachments/a_emp.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 7,
+  "height": 7,
+  "description": "EMP cylinder"
+ },
+ {
+  "key": "a_rgun",
+  "file": "sprites/02-ship-attachments/a_rgun.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 13,
+  "height": 11,
+  "description": "Tesla Coil"
+ },
+ {
+  "key": "a_sonic",
+  "file": "sprites/02-ship-attachments/a_sonic.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 7,
+  "height": 7,
+  "description": "Sonic Shield resonator"
+ },
+ {
+  "key": "a_node",
+  "file": "sprites/02-ship-attachments/a_node.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 2,
+  "height": 2,
+  "description": "Shield emitter stud"
+ },
+ {
+  "key": "a_plate",
+  "file": "sprites/02-ship-attachments/a_plate.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 12,
+  "height": 2,
+  "description": "Hull armour plate"
+ },
+ {
+  "key": "a_war",
+  "file": "sprites/02-ship-attachments/a_war.png",
+  "category": "02-ship-attachments",
+  "world": "",
+  "width": 7,
+  "height": 3,
+  "description": "Omega charge"
+ },
+ {
+  "key": "egy_dart",
+  "file": "sprites/03-enemies/egy_dart.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 12,
+  "height": 9,
+  "description": "Dart, fast flyer - II Valley of Ra"
+ },
+ {
+  "key": "egy_drone",
+  "file": "sprites/03-enemies/egy_drone.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Drone - II Valley of Ra"
+ },
+ {
+  "key": "egy_spinner",
+  "file": "sprites/03-enemies/egy_spinner.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - II Valley of Ra"
+ },
+ {
+  "key": "egy_gunship",
+  "file": "sprites/03-enemies/egy_gunship.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 14,
+  "height": 14,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - II Valley of Ra"
+ },
+ {
+  "key": "egy_mine",
+  "file": "sprites/03-enemies/egy_mine.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 9,
+  "height": 11,
+  "description": "Mine - II Valley of Ra"
+ },
+ {
+  "key": "egy_swooper",
+  "file": "sprites/03-enemies/egy_swooper.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 13,
+  "height": 11,
+  "description": "Swooper - II Valley of Ra"
+ },
+ {
+  "key": "egy_sniper",
+  "file": "sprites/03-enemies/egy_sniper.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 13,
+  "height": 9,
+  "description": "Sniper - II Valley of Ra"
+ },
+ {
+  "key": "egy_eelh",
+  "file": "sprites/03-enemies/egy_eelh.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 8,
+  "height": 5,
+  "description": "Eel/snake head - II Valley of Ra"
+ },
+ {
+  "key": "egy_eels",
+  "file": "sprites/03-enemies/egy_eels.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - II Valley of Ra"
+ },
+ {
+  "key": "egy_coral",
+  "file": "sprites/03-enemies/egy_coral.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 9,
+  "height": 9,
+  "description": "Wall turret (coral) - II Valley of Ra"
+ },
+ {
+  "key": "egy_kelpc",
+  "file": "sprites/03-enemies/egy_kelpc.png",
+  "category": "03-enemies",
+  "world": "II Valley of Ra",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - II Valley of Ra"
+ },
+ {
+  "key": "des_dart",
+  "file": "sprites/03-enemies/des_dart.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 12,
+  "height": 9,
+  "description": "Dart, fast flyer - III Bleached Dunes"
+ },
+ {
+  "key": "des_drone",
+  "file": "sprites/03-enemies/des_drone.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Drone - III Bleached Dunes"
+ },
+ {
+  "key": "des_spinner",
+  "file": "sprites/03-enemies/des_spinner.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - III Bleached Dunes"
+ },
+ {
+  "key": "des_gunship",
+  "file": "sprites/03-enemies/des_gunship.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 16,
+  "height": 10,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - III Bleached Dunes"
+ },
+ {
+  "key": "des_mine",
+  "file": "sprites/03-enemies/des_mine.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Mine - III Bleached Dunes"
+ },
+ {
+  "key": "des_swooper",
+  "file": "sprites/03-enemies/des_swooper.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 13,
+  "height": 11,
+  "description": "Swooper - III Bleached Dunes"
+ },
+ {
+  "key": "des_sniper",
+  "file": "sprites/03-enemies/des_sniper.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 12,
+  "height": 9,
+  "description": "Sniper - III Bleached Dunes"
+ },
+ {
+  "key": "des_eelh",
+  "file": "sprites/03-enemies/des_eelh.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 7,
+  "height": 7,
+  "description": "Eel/snake head - III Bleached Dunes"
+ },
+ {
+  "key": "des_eels",
+  "file": "sprites/03-enemies/des_eels.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - III Bleached Dunes"
+ },
+ {
+  "key": "des_coral",
+  "file": "sprites/03-enemies/des_coral.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Wall turret (coral) - III Bleached Dunes"
+ },
+ {
+  "key": "des_kelpc",
+  "file": "sprites/03-enemies/des_kelpc.png",
+  "category": "03-enemies",
+  "world": "III Bleached Dunes",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - III Bleached Dunes"
+ },
+ {
+  "key": "lav_dart",
+  "file": "sprites/03-enemies/lav_dart.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 12,
+  "height": 9,
+  "description": "Dart, fast flyer - IV Magma Rift"
+ },
+ {
+  "key": "lav_drone",
+  "file": "sprites/03-enemies/lav_drone.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 9,
+  "height": 9,
+  "description": "Drone - IV Magma Rift"
+ },
+ {
+  "key": "lav_spinner",
+  "file": "sprites/03-enemies/lav_spinner.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - IV Magma Rift"
+ },
+ {
+  "key": "lav_gunship",
+  "file": "sprites/03-enemies/lav_gunship.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 16,
+  "height": 11,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - IV Magma Rift"
+ },
+ {
+  "key": "lav_mine",
+  "file": "sprites/03-enemies/lav_mine.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 9,
+  "height": 9,
+  "description": "Mine - IV Magma Rift"
+ },
+ {
+  "key": "lav_swooper",
+  "file": "sprites/03-enemies/lav_swooper.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 13,
+  "height": 11,
+  "description": "Swooper - IV Magma Rift"
+ },
+ {
+  "key": "lav_sniper",
+  "file": "sprites/03-enemies/lav_sniper.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 12,
+  "height": 9,
+  "description": "Sniper - IV Magma Rift"
+ },
+ {
+  "key": "lav_eelh",
+  "file": "sprites/03-enemies/lav_eelh.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 8,
+  "height": 5,
+  "description": "Eel/snake head - IV Magma Rift"
+ },
+ {
+  "key": "lav_eels",
+  "file": "sprites/03-enemies/lav_eels.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - IV Magma Rift"
+ },
+ {
+  "key": "lav_coral",
+  "file": "sprites/03-enemies/lav_coral.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 9,
+  "height": 9,
+  "description": "Wall turret (coral) - IV Magma Rift"
+ },
+ {
+  "key": "lav_kelpc",
+  "file": "sprites/03-enemies/lav_kelpc.png",
+  "category": "03-enemies",
+  "world": "IV Magma Rift",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - IV Magma Rift"
+ },
+ {
+  "key": "jun_dart",
+  "file": "sprites/03-enemies/jun_dart.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 12,
+  "height": 9,
+  "description": "Dart, fast flyer - V Emerald Canopy"
+ },
+ {
+  "key": "jun_drone",
+  "file": "sprites/03-enemies/jun_drone.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 9,
+  "height": 9,
+  "description": "Drone - V Emerald Canopy"
+ },
+ {
+  "key": "jun_spinner",
+  "file": "sprites/03-enemies/jun_spinner.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - V Emerald Canopy"
+ },
+ {
+  "key": "jun_gunship",
+  "file": "sprites/03-enemies/jun_gunship.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 15,
+  "height": 9,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - V Emerald Canopy"
+ },
+ {
+  "key": "jun_mine",
+  "file": "sprites/03-enemies/jun_mine.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 9,
+  "height": 9,
+  "description": "Mine - V Emerald Canopy"
+ },
+ {
+  "key": "jun_swooper",
+  "file": "sprites/03-enemies/jun_swooper.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 14,
+  "height": 9,
+  "description": "Swooper - V Emerald Canopy"
+ },
+ {
+  "key": "jun_sniper",
+  "file": "sprites/03-enemies/jun_sniper.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 14,
+  "height": 9,
+  "description": "Sniper - V Emerald Canopy"
+ },
+ {
+  "key": "jun_eelh",
+  "file": "sprites/03-enemies/jun_eelh.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 8,
+  "height": 5,
+  "description": "Eel/snake head - V Emerald Canopy"
+ },
+ {
+  "key": "jun_eels",
+  "file": "sprites/03-enemies/jun_eels.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - V Emerald Canopy"
+ },
+ {
+  "key": "jun_coral",
+  "file": "sprites/03-enemies/jun_coral.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 9,
+  "height": 9,
+  "description": "Wall turret (coral) - V Emerald Canopy"
+ },
+ {
+  "key": "jun_kelpc",
+  "file": "sprites/03-enemies/jun_kelpc.png",
+  "category": "03-enemies",
+  "world": "V Emerald Canopy",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - V Emerald Canopy"
+ },
+ {
+  "key": "dig_dart",
+  "file": "sprites/03-enemies/dig_dart.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 10,
+  "height": 9,
+  "description": "Dart, fast flyer - VI Silicon Grid"
+ },
+ {
+  "key": "dig_drone",
+  "file": "sprites/03-enemies/dig_drone.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 10,
+  "height": 10,
+  "description": "Drone - VI Silicon Grid"
+ },
+ {
+  "key": "dig_spinner",
+  "file": "sprites/03-enemies/dig_spinner.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 11,
+  "description": "Spinner - VI Silicon Grid"
+ },
+ {
+  "key": "dig_gunship",
+  "file": "sprites/03-enemies/dig_gunship.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 13,
+  "height": 13,
+  "description": "Gunship, heavy enemy (also the mini-boss, 3x) - VI Silicon Grid"
+ },
+ {
+  "key": "dig_mine",
+  "file": "sprites/03-enemies/dig_mine.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 9,
+  "height": 9,
+  "description": "Mine - VI Silicon Grid"
+ },
+ {
+  "key": "dig_swooper",
+  "file": "sprites/03-enemies/dig_swooper.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 12,
+  "height": 9,
+  "description": "Swooper - VI Silicon Grid"
+ },
+ {
+  "key": "dig_sniper",
+  "file": "sprites/03-enemies/dig_sniper.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 9,
+  "description": "Sniper - VI Silicon Grid"
+ },
+ {
+  "key": "dig_eelh",
+  "file": "sprites/03-enemies/dig_eelh.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake head - VI Silicon Grid"
+ },
+ {
+  "key": "dig_eels",
+  "file": "sprites/03-enemies/dig_eels.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 5,
+  "height": 5,
+  "description": "Eel/snake body segment - VI Silicon Grid"
+ },
+ {
+  "key": "dig_coral",
+  "file": "sprites/03-enemies/dig_coral.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 7,
+  "height": 7,
+  "description": "Wall turret (coral) - VI Silicon Grid"
+ },
+ {
+  "key": "dig_kelpc",
+  "file": "sprites/03-enemies/dig_kelpc.png",
+  "category": "03-enemies",
+  "world": "VI Silicon Grid",
+  "width": 7,
+  "height": 7,
+  "description": "Grabbing kelp head - VI Silicon Grid"
+ },
+ {
+  "key": "rock0",
+  "file": "sprites/07-rocks/rock0.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "rocks0",
+  "file": "sprites/07-rocks/rocks0.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "rock1",
+  "file": "sprites/07-rocks/rock1.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "rocks1",
+  "file": "sprites/07-rocks/rocks1.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "rock2",
+  "file": "sprites/07-rocks/rock2.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "rocks2",
+  "file": "sprites/07-rocks/rocks2.png",
+  "category": "07-rocks",
+  "world": "I Coral Deep",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - I Coral Deep"
+ },
+ {
+  "key": "egy_rock0",
+  "file": "sprites/07-rocks/egy_rock0.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "egy_rocks0",
+  "file": "sprites/07-rocks/egy_rocks0.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "egy_rock1",
+  "file": "sprites/07-rocks/egy_rock1.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "egy_rocks1",
+  "file": "sprites/07-rocks/egy_rocks1.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "egy_rock2",
+  "file": "sprites/07-rocks/egy_rock2.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "egy_rocks2",
+  "file": "sprites/07-rocks/egy_rocks2.png",
+  "category": "07-rocks",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - II Valley of Ra"
+ },
+ {
+  "key": "des_rock0",
+  "file": "sprites/07-rocks/des_rock0.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "des_rocks0",
+  "file": "sprites/07-rocks/des_rocks0.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "des_rock1",
+  "file": "sprites/07-rocks/des_rock1.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "des_rocks1",
+  "file": "sprites/07-rocks/des_rocks1.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "des_rock2",
+  "file": "sprites/07-rocks/des_rock2.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "des_rocks2",
+  "file": "sprites/07-rocks/des_rocks2.png",
+  "category": "07-rocks",
+  "world": "III Bleached Dunes",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - III Bleached Dunes"
+ },
+ {
+  "key": "lav_rock0",
+  "file": "sprites/07-rocks/lav_rock0.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "lav_rocks0",
+  "file": "sprites/07-rocks/lav_rocks0.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "lav_rock1",
+  "file": "sprites/07-rocks/lav_rock1.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "lav_rocks1",
+  "file": "sprites/07-rocks/lav_rocks1.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "lav_rock2",
+  "file": "sprites/07-rocks/lav_rock2.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "lav_rocks2",
+  "file": "sprites/07-rocks/lav_rocks2.png",
+  "category": "07-rocks",
+  "world": "IV Magma Rift",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - IV Magma Rift"
+ },
+ {
+  "key": "jun_rock0",
+  "file": "sprites/07-rocks/jun_rock0.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "jun_rocks0",
+  "file": "sprites/07-rocks/jun_rocks0.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "jun_rock1",
+  "file": "sprites/07-rocks/jun_rock1.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "jun_rocks1",
+  "file": "sprites/07-rocks/jun_rocks1.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "jun_rock2",
+  "file": "sprites/07-rocks/jun_rock2.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "jun_rocks2",
+  "file": "sprites/07-rocks/jun_rocks2.png",
+  "category": "07-rocks",
+  "world": "V Emerald Canopy",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - V Emerald Canopy"
+ },
+ {
+  "key": "dig_rock0",
+  "file": "sprites/07-rocks/dig_rock0.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "dig_rocks0",
+  "file": "sprites/07-rocks/dig_rocks0.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "dig_rock1",
+  "file": "sprites/07-rocks/dig_rock1.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "dig_rocks1",
+  "file": "sprites/07-rocks/dig_rocks1.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "dig_rock2",
+  "file": "sprites/07-rocks/dig_rock2.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 19,
+  "height": 19,
+  "description": "Large asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "dig_rocks2",
+  "file": "sprites/07-rocks/dig_rocks2.png",
+  "category": "07-rocks",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 11,
+  "description": "Small asteroid/rock - VI Silicon Grid"
+ },
+ {
+  "key": "pA0/1/2",
+  "file": "sprites/08-obstacles/pA.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Coral pillar A (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "pB0/1/2",
+  "file": "sprites/08-obstacles/pB.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Coral pillar B (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "egy_pyr0/1/2",
+  "file": "sprites/08-obstacles/egy_pyr.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 32,
+  "height": 32,
+  "description": "Pyramid (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "egy_col0/1/2",
+  "file": "sprites/08-obstacles/egy_col.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Temple column (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "des_mesa0/1/2",
+  "file": "sprites/08-obstacles/des_mesa.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Mesa rock (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "des_sag0/1/2",
+  "file": "sprites/08-obstacles/des_sag.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Saguaro cactus (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "lav_volc0/1/2",
+  "file": "sprites/08-obstacles/lav_volc.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Volcano (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "lav_crys0/1/2",
+  "file": "sprites/08-obstacles/lav_crys.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Giant crystal (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "jun_tree0/1/2",
+  "file": "sprites/08-obstacles/jun_tree.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Jungle tree (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "jun_bloom0/1/2",
+  "file": "sprites/08-obstacles/jun_bloom.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Giant bloom (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "dig_tower0/1/2",
+  "file": "sprites/08-obstacles/dig_tower.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 32,
+  "height": 32,
+  "description": "Server tower (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "dig_bigfan0/1/2",
+  "file": "sprites/08-obstacles/dig_bigfan.png",
+  "category": "08-obstacles",
+  "world": "",
+  "width": 33,
+  "height": 33,
+  "description": "Giant fan (drawn at 3 sizes in game)"
+ },
+ {
+  "key": "egy_obel",
+  "file": "sprites/06-wall-props/egy_obel.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 5,
+  "height": 5,
+  "description": "Obelisk - II Valley of Ra"
+ },
+ {
+  "key": "egy_ankh",
+  "file": "sprites/06-wall-props/egy_ankh.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 8,
+  "height": 9,
+  "description": "Ankh - II Valley of Ra"
+ },
+ {
+  "key": "egy_ra",
+  "file": "sprites/06-wall-props/egy_ra.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Eye/sun of Ra - II Valley of Ra"
+ },
+ {
+  "key": "egy_catp",
+  "file": "sprites/06-wall-props/egy_catp.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 14,
+  "height": 14,
+  "description": "Bastet cat statue - II Valley of Ra"
+ },
+ {
+  "key": "egy_spyr",
+  "file": "sprites/06-wall-props/egy_spyr.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 10,
+  "height": 10,
+  "description": "Small pyramid - II Valley of Ra"
+ },
+ {
+  "key": "egy_palm",
+  "file": "sprites/06-wall-props/egy_palm.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 11,
+  "height": 11,
+  "description": "Palm - II Valley of Ra"
+ },
+ {
+  "key": "egy_braz",
+  "file": "sprites/06-wall-props/egy_braz.png",
+  "category": "06-wall-props",
+  "world": "II Valley of Ra",
+  "width": 9,
+  "height": 9,
+  "description": "Fire brazier - II Valley of Ra"
+ },
+ {
+  "key": "des_cact",
+  "file": "sprites/06-wall-props/des_cact.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Cactus - III Bleached Dunes"
+ },
+ {
+  "key": "des_skel",
+  "file": "sprites/06-wall-props/des_skel.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 18,
+  "height": 7,
+  "description": "Bleached horse skeleton - III Bleached Dunes"
+ },
+ {
+  "key": "des_well",
+  "file": "sprites/06-wall-props/des_well.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Water well - III Bleached Dunes"
+ },
+ {
+  "key": "des_tumb",
+  "file": "sprites/06-wall-props/des_tumb.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Tumbleweed - III Bleached Dunes"
+ },
+ {
+  "key": "des_skull",
+  "file": "sprites/06-wall-props/des_skull.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 9,
+  "height": 9,
+  "description": "Skull - III Bleached Dunes"
+ },
+ {
+  "key": "des_shrub",
+  "file": "sprites/06-wall-props/des_shrub.png",
+  "category": "06-wall-props",
+  "world": "III Bleached Dunes",
+  "width": 7,
+  "height": 7,
+  "description": "Dry shrub - III Bleached Dunes"
+ },
+ {
+  "key": "lav_stalag",
+  "file": "sprites/06-wall-props/lav_stalag.png",
+  "category": "06-wall-props",
+  "world": "IV Magma Rift",
+  "width": 5,
+  "height": 5,
+  "description": "Stalagmite - IV Magma Rift"
+ },
+ {
+  "key": "lav_tite",
+  "file": "sprites/06-wall-props/lav_tite.png",
+  "category": "06-wall-props",
+  "world": "IV Magma Rift",
+  "width": 5,
+  "height": 5,
+  "description": "Stalactite - IV Magma Rift"
+ },
+ {
+  "key": "lav_cryst",
+  "file": "sprites/06-wall-props/lav_cryst.png",
+  "category": "06-wall-props",
+  "world": "IV Magma Rift",
+  "width": 7,
+  "height": 7,
+  "description": "Crystal - IV Magma Rift"
+ },
+ {
+  "key": "lav_vent",
+  "file": "sprites/06-wall-props/lav_vent.png",
+  "category": "06-wall-props",
+  "world": "IV Magma Rift",
+  "width": 9,
+  "height": 9,
+  "description": "Fire vent - IV Magma Rift"
+ },
+ {
+  "key": "lav_pool",
+  "file": "sprites/06-wall-props/lav_pool.png",
+  "category": "06-wall-props",
+  "world": "IV Magma Rift",
+  "width": 11,
+  "height": 6,
+  "description": "Lava pool - IV Magma Rift"
+ },
+ {
+  "key": "jun_flower",
+  "file": "sprites/06-wall-props/jun_flower.png",
+  "category": "06-wall-props",
+  "world": "V Emerald Canopy",
+  "width": 11,
+  "height": 11,
+  "description": "Poison flower - V Emerald Canopy"
+ },
+ {
+  "key": "jun_fern",
+  "file": "sprites/06-wall-props/jun_fern.png",
+  "category": "06-wall-props",
+  "world": "V Emerald Canopy",
+  "width": 9,
+  "height": 9,
+  "description": "Fern - V Emerald Canopy"
+ },
+ {
+  "key": "jun_mush",
+  "file": "sprites/06-wall-props/jun_mush.png",
+  "category": "06-wall-props",
+  "world": "V Emerald Canopy",
+  "width": 7,
+  "height": 7,
+  "description": "Mushroom - V Emerald Canopy"
+ },
+ {
+  "key": "jun_bush",
+  "file": "sprites/06-wall-props/jun_bush.png",
+  "category": "06-wall-props",
+  "world": "V Emerald Canopy",
+  "width": 15,
+  "height": 15,
+  "description": "Bush - V Emerald Canopy"
+ },
+ {
+  "key": "jun_monkey",
+  "file": "sprites/06-wall-props/jun_monkey.png",
+  "category": "06-wall-props",
+  "world": "V Emerald Canopy",
+  "width": 14,
+  "height": 9,
+  "description": "Long-tailed monkey - V Emerald Canopy"
+ },
+ {
+  "key": "dig_floppy",
+  "file": "sprites/06-wall-props/dig_floppy.png",
+  "category": "06-wall-props",
+  "world": "VI Silicon Grid",
+  "width": 10,
+  "height": 10,
+  "description": "Floppy disk - VI Silicon Grid"
+ },
+ {
+  "key": "dig_cpu",
+  "file": "sprites/06-wall-props/dig_cpu.png",
+  "category": "06-wall-props",
+  "world": "VI Silicon Grid",
+  "width": 13,
+  "height": 13,
+  "description": "CPU - VI Silicon Grid"
+ },
+ {
+  "key": "dig_ram",
+  "file": "sprites/06-wall-props/dig_ram.png",
+  "category": "06-wall-props",
+  "world": "VI Silicon Grid",
+  "width": 17,
+  "height": 4,
+  "description": "RAM module - VI Silicon Grid"
+ },
+ {
+  "key": "dig_fan",
+  "file": "sprites/06-wall-props/dig_fan.png",
+  "category": "06-wall-props",
+  "world": "VI Silicon Grid",
+  "width": 11,
+  "height": 11,
+  "description": "Fan - VI Silicon Grid"
+ },
+ {
+  "key": "dig_cap",
+  "file": "sprites/06-wall-props/dig_cap.png",
+  "category": "06-wall-props",
+  "world": "VI Silicon Grid",
+  "width": 5,
+  "height": 5,
+  "description": "Capacitor - VI Silicon Grid"
+ },
+ {
+  "key": "boss5",
+  "file": "sprites/05-bosses/boss5.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 48,
+  "height": 42,
+  "description": "NAUTILUS PRIME - mini-boss, level 5"
+ },
+ {
+  "key": "boss10",
+  "file": "sprites/05-bosses/boss10.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 54,
+  "height": 44,
+  "description": "TIDE WARDEN - end boss, level 10"
+ },
+ {
+  "key": "boss15",
+  "file": "sprites/05-bosses/boss15.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 42,
+  "height": 42,
+  "description": "EYE OF HORUS - mini-boss, level 15"
+ },
+ {
+  "key": "boss20",
+  "file": "sprites/05-bosses/boss20.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 66,
+  "height": 50,
+  "description": "SPHINX OF RA - end boss, level 20"
+ },
+ {
+  "key": "pod20",
+  "file": "sprites/05-bosses/pod20.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 14,
+  "height": 14,
+  "description": "Shield pod of the level 20 boss"
+ },
+ {
+  "key": "boss25",
+  "file": "sprites/05-bosses/boss25.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 48,
+  "height": 30,
+  "description": "SANDSHELL TITAN - mini-boss, level 25"
+ },
+ {
+  "key": "boss30",
+  "file": "sprites/05-bosses/boss30.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 62,
+  "height": 52,
+  "description": "DUNE SCORPION - end boss, level 30"
+ },
+ {
+  "key": "boss35",
+  "file": "sprites/05-bosses/boss35.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 48,
+  "height": 33,
+  "description": "CINDER PHOENIX - mini-boss, level 35"
+ },
+ {
+  "key": "boss40",
+  "file": "sprites/05-bosses/boss40.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 72,
+  "height": 58,
+  "description": "MAGMA COLOSSUS - end boss, level 40"
+ },
+ {
+  "key": "pod40",
+  "file": "sprites/05-bosses/pod40.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 14,
+  "height": 14,
+  "description": "Shield pod of the level 40 boss"
+ },
+ {
+  "key": "boss45",
+  "file": "sprites/05-bosses/boss45.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 45,
+  "height": 27,
+  "description": "CANOPY STALKER - mini-boss, level 45"
+ },
+ {
+  "key": "boss50",
+  "file": "sprites/05-bosses/boss50.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 58,
+  "height": 58,
+  "description": "CORPSE BLOOM - end boss, level 50"
+ },
+ {
+  "key": "boss55",
+  "file": "sprites/05-bosses/boss55.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 39,
+  "height": 39,
+  "description": "KERNEL DAEMON - mini-boss, level 55"
+ },
+ {
+  "key": "boss60",
+  "file": "sprites/05-bosses/boss60.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 84,
+  "height": 66,
+  "description": "MAINFRAME ARGUS - end boss, level 60"
+ },
+ {
+  "key": "pod60",
+  "file": "sprites/05-bosses/pod60.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 11,
+  "height": 11,
+  "description": "Shield pod of the level 60 boss"
+ },
+ {
+  "key": "boss65",
+  "file": "sprites/05-bosses/boss65.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 39,
+  "height": 39,
+  "description": "THRONE HERALD - mini-boss, level 65"
+ },
+ {
+  "key": "boss70",
+  "file": "sprites/05-bosses/boss70.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 74,
+  "height": 60,
+  "description": "NULL SOVEREIGN - end boss, level 70"
+ },
+ {
+  "key": "boss70b",
+  "file": "sprites/05-bosses/boss70b.png",
+  "category": "05-bosses",
+  "world": "",
+  "width": 96,
+  "height": 76,
+  "description": "NULL SOVEREIGN (Ascendant form) - end boss, level 70"
+ },
+ {
+  "key": "floor1",
+  "file": "sprites/10-floor-textures/floor-1-wat.png",
+  "category": "10-floor-textures",
+  "world": "I Coral Deep",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - I Coral Deep"
+ },
+ {
+  "key": "floor2",
+  "file": "sprites/10-floor-textures/floor-2-egy.png",
+  "category": "10-floor-textures",
+  "world": "II Valley of Ra",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - II Valley of Ra"
+ },
+ {
+  "key": "floor3",
+  "file": "sprites/10-floor-textures/floor-3-des.png",
+  "category": "10-floor-textures",
+  "world": "III Bleached Dunes",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - III Bleached Dunes"
+ },
+ {
+  "key": "floor4",
+  "file": "sprites/10-floor-textures/floor-4-lav.png",
+  "category": "10-floor-textures",
+  "world": "IV Magma Rift",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - IV Magma Rift"
+ },
+ {
+  "key": "floor5",
+  "file": "sprites/10-floor-textures/floor-5-jun.png",
+  "category": "10-floor-textures",
+  "world": "V Emerald Canopy",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - V Emerald Canopy"
+ },
+ {
+  "key": "floor6",
+  "file": "sprites/10-floor-textures/floor-6-dig.png",
+  "category": "10-floor-textures",
+  "world": "VI Silicon Grid",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - VI Silicon Grid"
+ },
+ {
+  "key": "floor7",
+  "file": "sprites/10-floor-textures/floor-7-mix.png",
+  "category": "10-floor-textures",
+  "world": "VII Sovereign's Throne",
+  "width": 512,
+  "height": 512,
+  "description": "Ground texture (tiles seamlessly) - VII Sovereign's Throne"
+ }
+]
