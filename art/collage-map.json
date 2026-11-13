@@ -1,0 +1,1521 @@
+{
+ "size": [
+  2048,
+  1752
+ ],
+ "background": "#808080",
+ "items": [
+  {
+   "file": "sprites/01-player/ship.png",
+   "x": 24,
+   "y": 24,
+   "w": 264,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/01-player/miniship.png",
+   "x": 312,
+   "y": 24,
+   "w": 264,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss70b.png",
+   "x": 24,
+   "y": 180,
+   "w": 384,
+   "h": 304,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss60.png",
+   "x": 432,
+   "y": 180,
+   "w": 336,
+   "h": 264,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss70.png",
+   "x": 792,
+   "y": 180,
+   "w": 296,
+   "h": 240,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss40.png",
+   "x": 1112,
+   "y": 180,
+   "w": 288,
+   "h": 232,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss50.png",
+   "x": 1424,
+   "y": 180,
+   "w": 232,
+   "h": 232,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss30.png",
+   "x": 1680,
+   "y": 180,
+   "w": 248,
+   "h": 208,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss20.png",
+   "x": 24,
+   "y": 508,
+   "w": 264,
+   "h": 200,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss10.png",
+   "x": 312,
+   "y": 508,
+   "w": 216,
+   "h": 176,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss5.png",
+   "x": 552,
+   "y": 508,
+   "w": 192,
+   "h": 168,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss15.png",
+   "x": 768,
+   "y": 508,
+   "w": 168,
+   "h": 168,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss55.png",
+   "x": 960,
+   "y": 508,
+   "w": 156,
+   "h": 156,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss65.png",
+   "x": 1140,
+   "y": 508,
+   "w": 156,
+   "h": 156,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss35.png",
+   "x": 1320,
+   "y": 508,
+   "w": 192,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss25.png",
+   "x": 1536,
+   "y": 508,
+   "w": 192,
+   "h": 120,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/boss45.png",
+   "x": 1752,
+   "y": 508,
+   "w": 180,
+   "h": 108,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/pod20.png",
+   "x": 1956,
+   "y": 508,
+   "w": 56,
+   "h": 56,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/pod40.png",
+   "x": 24,
+   "y": 732,
+   "w": 56,
+   "h": 56,
+   "scale": 4
+  },
+  {
+   "file": "sprites/05-bosses/pod60.png",
+   "x": 104,
+   "y": 732,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_rgun.png",
+   "x": 24,
+   "y": 812,
+   "w": 52,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/i_tside.png",
+   "x": 100,
+   "y": 812,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_sbeam.png",
+   "x": 172,
+   "y": 812,
+   "w": 40,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_aa.png",
+   "x": 236,
+   "y": 812,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_ring.png",
+   "x": 288,
+   "y": 812,
+   "w": 12,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_emp.png",
+   "x": 324,
+   "y": 812,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_sonic.png",
+   "x": 376,
+   "y": 812,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/i_dome.png",
+   "x": 428,
+   "y": 812,
+   "w": 40,
+   "h": 24,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/i_tail.png",
+   "x": 492,
+   "y": 812,
+   "w": 40,
+   "h": 24,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_dish.png",
+   "x": 556,
+   "y": 812,
+   "w": 24,
+   "h": 24,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/wing.png",
+   "x": 604,
+   "y": 812,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_pod.png",
+   "x": 648,
+   "y": 812,
+   "w": 24,
+   "h": 16,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_prow.png",
+   "x": 696,
+   "y": 812,
+   "w": 28,
+   "h": 12,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_wing.png",
+   "x": 748,
+   "y": 812,
+   "w": 32,
+   "h": 12,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_spine.png",
+   "x": 804,
+   "y": 812,
+   "w": 80,
+   "h": 12,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_orb.png",
+   "x": 908,
+   "y": 812,
+   "w": 12,
+   "h": 12,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_war.png",
+   "x": 944,
+   "y": 812,
+   "w": 28,
+   "h": 12,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_node.png",
+   "x": 996,
+   "y": 812,
+   "w": 8,
+   "h": 8,
+   "scale": 4
+  },
+  {
+   "file": "sprites/02-ship-attachments/a_plate.png",
+   "x": 1028,
+   "y": 812,
+   "w": 48,
+   "h": 8,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/gunship.png",
+   "x": 24,
+   "y": 880,
+   "w": 64,
+   "h": 56,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_gunship.png",
+   "x": 112,
+   "y": 880,
+   "w": 56,
+   "h": 56,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_gunship.png",
+   "x": 192,
+   "y": 880,
+   "w": 52,
+   "h": 52,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/spinner.png",
+   "x": 268,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/swooper.png",
+   "x": 336,
+   "y": 880,
+   "w": 52,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_drone.png",
+   "x": 412,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_spinner.png",
+   "x": 480,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_mine.png",
+   "x": 548,
+   "y": 880,
+   "w": 36,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_swooper.png",
+   "x": 608,
+   "y": 880,
+   "w": 52,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_spinner.png",
+   "x": 684,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_swooper.png",
+   "x": 752,
+   "y": 880,
+   "w": 52,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_spinner.png",
+   "x": 828,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_gunship.png",
+   "x": 896,
+   "y": 880,
+   "w": 64,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_swooper.png",
+   "x": 984,
+   "y": 880,
+   "w": 52,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_spinner.png",
+   "x": 1060,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_spinner.png",
+   "x": 1128,
+   "y": 880,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_gunship.png",
+   "x": 1196,
+   "y": 880,
+   "w": 64,
+   "h": 40,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_drone.png",
+   "x": 1284,
+   "y": 880,
+   "w": 40,
+   "h": 40,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/drone.png",
+   "x": 1348,
+   "y": 880,
+   "w": 40,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/mine.png",
+   "x": 1412,
+   "y": 880,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/coral.png",
+   "x": 1472,
+   "y": 880,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/bjelly.png",
+   "x": 1532,
+   "y": 880,
+   "w": 40,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_dart.png",
+   "x": 1596,
+   "y": 880,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_sniper.png",
+   "x": 1668,
+   "y": 880,
+   "w": 52,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_coral.png",
+   "x": 1744,
+   "y": 880,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_dart.png",
+   "x": 1804,
+   "y": 880,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_drone.png",
+   "x": 1876,
+   "y": 880,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_mine.png",
+   "x": 1936,
+   "y": 880,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_sniper.png",
+   "x": 24,
+   "y": 960,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_coral.png",
+   "x": 96,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_dart.png",
+   "x": 156,
+   "y": 960,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_drone.png",
+   "x": 228,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_mine.png",
+   "x": 288,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_sniper.png",
+   "x": 348,
+   "y": 960,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_coral.png",
+   "x": 420,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_dart.png",
+   "x": 480,
+   "y": 960,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_drone.png",
+   "x": 552,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_gunship.png",
+   "x": 612,
+   "y": 960,
+   "w": 60,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_mine.png",
+   "x": 696,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_swooper.png",
+   "x": 756,
+   "y": 960,
+   "w": 56,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_sniper.png",
+   "x": 836,
+   "y": 960,
+   "w": 56,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_coral.png",
+   "x": 916,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_dart.png",
+   "x": 976,
+   "y": 960,
+   "w": 40,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_mine.png",
+   "x": 1040,
+   "y": 960,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_swooper.png",
+   "x": 1100,
+   "y": 960,
+   "w": 48,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_sniper.png",
+   "x": 1172,
+   "y": 960,
+   "w": 44,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/sniper.png",
+   "x": 1240,
+   "y": 960,
+   "w": 52,
+   "h": 32,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dart.png",
+   "x": 1316,
+   "y": 960,
+   "w": 64,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/kelpc.png",
+   "x": 1404,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_kelpc.png",
+   "x": 1456,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_eelh.png",
+   "x": 1508,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_kelpc.png",
+   "x": 1560,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_kelpc.png",
+   "x": 1612,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_kelpc.png",
+   "x": 1664,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_coral.png",
+   "x": 1716,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_kelpc.png",
+   "x": 1768,
+   "y": 960,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/eelh.png",
+   "x": 1820,
+   "y": 960,
+   "w": 32,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/eels.png",
+   "x": 1876,
+   "y": 960,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_eelh.png",
+   "x": 1920,
+   "y": 960,
+   "w": 32,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/egy_eels.png",
+   "x": 1976,
+   "y": 960,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/des_eels.png",
+   "x": 24,
+   "y": 1020,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_eelh.png",
+   "x": 68,
+   "y": 1020,
+   "w": 32,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/lav_eels.png",
+   "x": 124,
+   "y": 1020,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_eelh.png",
+   "x": 168,
+   "y": 1020,
+   "w": 32,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/jun_eels.png",
+   "x": 224,
+   "y": 1020,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_eelh.png",
+   "x": 268,
+   "y": 1020,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/03-enemies/dig_eels.png",
+   "x": 312,
+   "y": 1020,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/jun_bush.png",
+   "x": 24,
+   "y": 1064,
+   "w": 60,
+   "h": 60,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_catp.png",
+   "x": 108,
+   "y": 1064,
+   "w": 56,
+   "h": 56,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/dig_cpu.png",
+   "x": 188,
+   "y": 1064,
+   "w": 52,
+   "h": 52,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_ra.png",
+   "x": 264,
+   "y": 1064,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_palm.png",
+   "x": 332,
+   "y": 1064,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/jun_flower.png",
+   "x": 400,
+   "y": 1064,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/dig_fan.png",
+   "x": 468,
+   "y": 1064,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_spyr.png",
+   "x": 536,
+   "y": 1064,
+   "w": 40,
+   "h": 40,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/dig_floppy.png",
+   "x": 600,
+   "y": 1064,
+   "w": 40,
+   "h": 40,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_ankh.png",
+   "x": 664,
+   "y": 1064,
+   "w": 32,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_braz.png",
+   "x": 720,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_cact.png",
+   "x": 780,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_well.png",
+   "x": 840,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_tumb.png",
+   "x": 900,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_skull.png",
+   "x": 960,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/lav_vent.png",
+   "x": 1020,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/jun_fern.png",
+   "x": 1080,
+   "y": 1064,
+   "w": 36,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/jun_monkey.png",
+   "x": 1140,
+   "y": 1064,
+   "w": 56,
+   "h": 36,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_skel.png",
+   "x": 1220,
+   "y": 1064,
+   "w": 72,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/des_shrub.png",
+   "x": 1316,
+   "y": 1064,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/lav_cryst.png",
+   "x": 1368,
+   "y": 1064,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/jun_mush.png",
+   "x": 1420,
+   "y": 1064,
+   "w": 28,
+   "h": 28,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/lav_pool.png",
+   "x": 1472,
+   "y": 1064,
+   "w": 44,
+   "h": 24,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/egy_obel.png",
+   "x": 1540,
+   "y": 1064,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/lav_stalag.png",
+   "x": 1584,
+   "y": 1064,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/lav_tite.png",
+   "x": 1628,
+   "y": 1064,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/dig_cap.png",
+   "x": 1672,
+   "y": 1064,
+   "w": 20,
+   "h": 20,
+   "scale": 4
+  },
+  {
+   "file": "sprites/06-wall-props/dig_ram.png",
+   "x": 1716,
+   "y": 1064,
+   "w": 68,
+   "h": 16,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/pA.png",
+   "x": 24,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/pB.png",
+   "x": 180,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/egy_col.png",
+   "x": 336,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/des_mesa.png",
+   "x": 492,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/des_sag.png",
+   "x": 648,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/lav_volc.png",
+   "x": 804,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/lav_crys.png",
+   "x": 960,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/jun_tree.png",
+   "x": 1116,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/jun_bloom.png",
+   "x": 1272,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/dig_bigfan.png",
+   "x": 1428,
+   "y": 1148,
+   "w": 132,
+   "h": 132,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/egy_pyr.png",
+   "x": 1584,
+   "y": 1148,
+   "w": 128,
+   "h": 128,
+   "scale": 4
+  },
+  {
+   "file": "sprites/08-obstacles/dig_tower.png",
+   "x": 1736,
+   "y": 1148,
+   "w": 128,
+   "h": 128,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rock0.png",
+   "x": 24,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rock1.png",
+   "x": 124,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rock2.png",
+   "x": 224,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rock0.png",
+   "x": 324,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rock1.png",
+   "x": 424,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rock2.png",
+   "x": 524,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rock0.png",
+   "x": 624,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rock1.png",
+   "x": 724,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rock2.png",
+   "x": 824,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rock0.png",
+   "x": 924,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rock1.png",
+   "x": 1024,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rock2.png",
+   "x": 1124,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rock0.png",
+   "x": 1224,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rock1.png",
+   "x": 1324,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rock2.png",
+   "x": 1424,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rock0.png",
+   "x": 1524,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rock1.png",
+   "x": 1624,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rock2.png",
+   "x": 1724,
+   "y": 1304,
+   "w": 76,
+   "h": 76,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rocks0.png",
+   "x": 1824,
+   "y": 1304,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rocks1.png",
+   "x": 1892,
+   "y": 1304,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/rocks2.png",
+   "x": 1960,
+   "y": 1304,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rocks0.png",
+   "x": 24,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rocks1.png",
+   "x": 92,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/egy_rocks2.png",
+   "x": 160,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rocks0.png",
+   "x": 228,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rocks1.png",
+   "x": 296,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/des_rocks2.png",
+   "x": 364,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rocks0.png",
+   "x": 432,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rocks1.png",
+   "x": 500,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/lav_rocks2.png",
+   "x": 568,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rocks0.png",
+   "x": 636,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rocks1.png",
+   "x": 704,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/jun_rocks2.png",
+   "x": 772,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rocks0.png",
+   "x": 840,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rocks1.png",
+   "x": 908,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/07-rocks/dig_rocks2.png",
+   "x": 976,
+   "y": 1404,
+   "w": 44,
+   "h": 44,
+   "scale": 4
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-1-wat.png",
+   "x": 24,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-2-egy.png",
+   "x": 304,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-3-des.png",
+   "x": 584,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-4-lav.png",
+   "x": 864,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-5-jun.png",
+   "x": 1144,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-6-dig.png",
+   "x": 1424,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  },
+  {
+   "file": "sprites/10-floor-textures/floor-7-mix.png",
+   "x": 1704,
+   "y": 1472,
+   "w": 256,
+   "h": 256,
+   "scale": "floor 256"
+  }
+ ]
+}
