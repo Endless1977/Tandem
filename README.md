@@ -135,7 +135,7 @@ Inspired by old DOS games. Let's hear it for the early developers!
 
 ## HD art
 
-All graphics were upscaled with an AI from the collage in `art/collage.png`. The game cuts them back into sprites (`art/upscaled/`, packed into `art/hd/atlas.png`) and builds its 3D voxel models from them at double density, so sizes and hitboxes stay exactly the same. The AI floors are mirrored into seamless tiles. Press **H** or the **Art** button to switch back to the original pixel art; each player chooses for themselves. Sprites the AI left out (`a_ring`, `jun_kelpc`, `lav_stalag`, `dig_rock1`) keep their pixel version.
+All graphics were upscaled with an AI from the collage in `art/collage.png`. The game cuts them back into sprites (`art/upscaled/`, packed into `art/hd/atlas.png`) and builds its 3D voxel models from them at double density, so sizes and hitboxes stay exactly the same. The AI floors are mirrored into seamless tiles. Press **H** or the **Art** button to switch back to the original pixel art; each player chooses for themselves. The one sprite the AI left out (`coral`, the water-world wall turret) keeps its pixel version.
 
 ## Technical notes
 
